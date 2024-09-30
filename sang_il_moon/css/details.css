@@ -1,0 +1,37 @@
+figure {
+    display: flex;
+    gap: 40px;
+}
+
+#product-img {
+    flex-grow: 1;
+    border: 2px solid black;
+}
+
+figcaption {
+    width: 300px;
+}
+
+.product-opinions {
+    max-height: 300px;
+    overflow-y: auto;
+    /* 세로 방향 스크롤 적용 */
+    padding-right: 10px;
+    /* 스크롤바와 텍스트 사이의 간격 */
+}
+
+dl {
+    display: flex;
+    flex-direction: column; /* 각 쌍을 한 줄로 배치 */
+}
+
+dt {
+    display: inline;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+dd {
+    display: inline;
+    margin-left: 0;
+}
