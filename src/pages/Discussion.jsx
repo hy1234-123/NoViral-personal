@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../css/discussion.css';
+import Modal from '../components/Modal'; // 모달 컴포넌트 임포트
 
 function Discussion() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalType, setModalType] = useState('');
+  
   useEffect(() => {
     fetchProductOpinion();
   }, [id]);
@@ -21,6 +24,16 @@ function Discussion() {
     }
   }
 
+  const openModal = (type) => {
+    setModalType(type);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalType('');
+  };
+
   if (!product) return <p>Loading...</p>;
 
   return (
@@ -28,7 +41,9 @@ function Discussion() {
       <section className='discussion-section'>
         <div className='discussion-header'>
           <h2>상품 토론</h2>
-          <a href="" role="button">새 의견 등록</a> {/**모달 출력 버튼(예정) */}
+          <a href="" role="button" onClick={(e) => { e.preventDefault(); openModal('newOpinion'); }}>
+            새 의견 등록
+          </a>
         </div>
         {product.opinions.map(opinion => (
           <article key={opinion.date}>
@@ -46,7 +61,7 @@ function Discussion() {
             </small>&nbsp;
             <button type="button">반대</button>
             <button type="button">찬성</button>
-            <button type="button">신고</button>
+            <button type="button" onClick={() => openModal('report')}>신고</button>
           </article>
         ))}
       </section>
@@ -71,6 +86,8 @@ function Discussion() {
             </article>
           ))}
       </section>
+      {/* Modal 컴포넌트 사용 */}
+      <Modal isOpen={modalOpen} onClose={closeModal} type={modalType} />
     </main>
   );
 }
