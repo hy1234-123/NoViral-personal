@@ -1,0 +1,15 @@
+/* CloseButton.css */
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 32px;
+}
+.close-icon {
+  width: 24px;
+  height: 24px;
+}

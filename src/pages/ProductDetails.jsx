@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Button } from '../components';
 import '../css/productDetails.css';
 
 function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   useEffect(() => {
     fetchProductData();
@@ -21,47 +23,59 @@ function ProductDetails() {
     }
   }
 
+  const goToDiscussion = () => {
+    navigate(`/discussion/${id}`); // '/discussion/:id'로 이동
+  };
+
   if (!product) return <p>Loading...</p>;
 
   return (
-    <figure>
-      <img src="" alt="상품 이미지" />
-      <figcaption>
-        <h1>{product.productName}</h1>
-        <dl>
-          {Object.entries(product.specs).map(([specName, specValue]) => (
-            <div key={specName}>
-              <dt>{specName}</dt>
-              <dd>{specValue}</dd>
-            </div>
-          ))}
-        </dl>
-        <p className='product-description'>{product.description}</p>
-        <h2>상품 의견</h2>
-        <section className="product-opinions">
-          {product.opinions && product.opinions.length > 0 ? (
-            product.opinions.map((opinion) => (
-              <article key={opinion.date} className="opinion">
+    <main>
+      <section className="product-overview">
+        <article className='product-info'>
+          <h2>{product.productName}</h2>
+          <dl>
+            {Object.entries(product.specs).map(([specName, specValue]) => (
+              <div key={specName}>
+                <dt>{specName}</dt>
+                <dd>{specValue}</dd>
+              </div>
+            ))}
+          </dl>
+        </article>
+        <div className='popular-opinions'>
+          <h2>찬성을 많이 받은 상품 의견</h2>
+          {product.opinions.slice()
+            .sort((a, b) => b.upvotes - a.upvotes)
+            .map((opinion, index) => (
+              <article key={index}>
                 <p>{opinion.content}</p>
                 <small>
-                  작성자: {opinion.author}&nbsp;
+                  {/* #{index + 1}/ 찬 {opinion.upvotes}/반 {opinion.downvotes}&nbsp; */}
                   <time dateTime={opinion.date}>
                     {new Date(opinion.date).toLocaleDateString('ko-KR', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
+                      year: '2-digit',
+                      month: '2-digit',
+                      day: '2-digit',
+                      hour: '2-digit',
+                      minute: '2-digit',
+                      second: '2-digit',
+                      hour12: false,
                     })}
                   </time>
+                  <span>{opinion.author}</span>
                 </small>
               </article>
-            ))
-          ) : (
-            <p>의견이 없습니다.</p>
-          )}
-        </section>
-      </figcaption>
-    </figure>
+            ))}
+          <Button text="상품 의견 제시" onClick={() => goToDiscussion()}/>
+        </div>
+      </section>
+
+      <section className='discussion-section'>
+        <img/>
+      </section>
+    </main>
   );
 }
 
-export default ProductDetails;
+export default ProductDetails

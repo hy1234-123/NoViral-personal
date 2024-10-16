@@ -1,7 +1,10 @@
 import React from 'react'
+import {NavBar} from './'
 
 export default function Header() {
   return (
-    <header></header>
+    <header>
+      <NavBar/>
+    </header>
   )
 }
