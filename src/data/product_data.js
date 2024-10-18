@@ -1,84 +1,134 @@
-const product = [
+const productData = [
     {
         id : 1,
         product_name : "Logitech G102",
-        description : "Logitech G102",
+        description : "무선 지원",
+        width : "40mm",
+        depth: "63.5mm",
+        height : "125mm",
+        weight: "60g",
         price : "22,210",
         currency : "원",
-        thumbnail : "./img/logitech_g102"
+        color: "Black, White, Pink",
+        thumbnail : "./images/logitech_g102.png"
     },
     {
         id : 2,
         product_name : "Logitech G304",
-        description : "Logitech G304",
+        description : "무선 지원",
+        width : "40mm",
+        depth: "63.5mm",
+        height : "125mm",
+        weight: "60g",
         price : "55,510",
         currency : "원",
-        thumbnail : "./img/logitech_g304"
+        color: "Black, White, Pink",
+        thumbnail : "./images/logitech_g304.png"
     },
     {
         id : 3,
         product_name : "Logitech G Pro X SUPERLIGHT2",
-        description : "Logitech G Pro X SUPERLIGHT2",
+        description : "무선 지원",
+        width : "40mm",
+        depth: "63.5mm",
+        height : "125mm",
+        weight: "60g",
         price : "195,800",
         currency : "원",
-        thumbnail : "./img/logitech_gSuperLight"
+        color: "Black, White, Pink",
+        thumbnail : "./images/logitech_gSuperLight.png"
     },
     {
         id : 4,
-        product_name : "Logitech G Pro X SUPERLIGHT2",
-        description : "Logitech G Pro X SUPERLIGHT2",
+        product_name : "Logitech G904",
+        description : "무선 지원",
+        width : "40mm",
+        depth: "63.5mm",
+        height : "125mm",
+        weight: "60g",
         price : "195,800",
         currency : "원",
-        thumbnail : "./img/logitech_gSuperLight"
+        color: "Black, White, Pink",
+        thumbnail : "./images/logitech_g904.png"
     },
     {
         id : 5,
-        product_name : "Logitech G Pro X SUPERLIGHT2",
-        description : "Logitech G Pro X SUPERLIGHT2",
-        price : "195,800",
+        product_name : "Logitech G305",
+        description : "무선 지원",
+        width : "40mm",
+        depth: "63.5mm",
+        height : "125mm",
+        weight: "60g",
+        price : "22,210",
         currency : "원",
-        thumbnail : "./img/logitech_gSuperLight"
+        color: "Black, White, Pink",
+        thumbnail : "./images/logitech_g305.png"
     },
     {
         id : 6,
-        product_name : "Logitech G Pro X SUPERLIGHT2",
-        description : "Logitech G Pro X SUPERLIGHT2",
-        price : "195,800",
+        product_name : "Razer Viper V3 Pro",
+        description : "무선 지원",
+        width : "40mm",
+        depth: "63.5mm",
+        height : "125mm",
+        weight: "60g",
+        price : "22,210",
         currency : "원",
-        thumbnail : "./img/logitech_gSuperLight"
+        color: "Black, White, Pink",
+        thumbnail : "./images/Razer_Viper_V3_Pro.png"
     },
     {
         id : 7,
-        product_name : "Logitech G Pro X SUPERLIGHT2",
-        description : "Logitech G Pro X SUPERLIGHT2",
-        price : "195,800",
+        product_name : "Logitech G102",
+        description : "무선 지원",
+        width : "40mm",
+        depth: "63.5mm",
+        height : "125mm",
+        weight: "60g",
+        price : "22,210",
         currency : "원",
-        thumbnail : "./img/logitech_gSuperLight"
+        color: "Black, White, Pink",
+        thumbnail : "./images/logitech_g102.png"
     },
     {
         id : 8,
-        product_name : "Logitech G Pro X SUPERLIGHT2",
-        description : "Logitech G Pro X SUPERLIGHT2",
-        price : "195,800",
+        product_name : "Logitech G102",
+        description : "무선 지원",
+        width : "40mm",
+        depth: "63.5mm",
+        height : "125mm",
+        weight: "60g",
+        price : "22,210",
         currency : "원",
-        thumbnail : "./img/logitech_gSuperLight"
+        color: "Black, White, Pink",
+        thumbnail : "./images/logitech_g102.png"
     },
     {
         id : 9,
-        product_name : "Logitech G Pro X SUPERLIGHT2",
-        description : "Logitech G Pro X SUPERLIGHT2",
-        price : "195,800",
+        product_name : "Logitech G102",
+        description : "무선 지원",
+        width : "40mm",
+        depth: "63.5mm",
+        height : "125mm",
+        weight: "60g",
+        price : "22,210",
         currency : "원",
-        thumbnail : "./img/logitech_gSuperLight"
+        color: "Black, White, Pink",
+        thumbnail : "./images/logitech_g102.png"
     },
     {
         id : 10,
-        product_name : "Logitech G Pro X SUPERLIGHT2",
-        description : "Logitech G Pro X SUPERLIGHT2",
-        price : "195,800",
+        product_name : "Logitech G102",
+        description : "무선 지원",
+        width : "40mm",
+        depth: "63.5mm",
+        height : "125mm",
+        weight: "60g",
+        price : "22,210",
         currency : "원",
-        thumbnail : "./img/logitech_gSuperLight"
+        color: "Black, White, Pink",
+        thumbnail : "./images/logitech_g102.png"
     },
 ]
 
-export default product;
+export default productData;

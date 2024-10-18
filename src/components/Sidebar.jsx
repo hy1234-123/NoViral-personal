@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import '../css/Sidebar.css';
+import './Sidebar.css';
 
 const Sidebar = ({ thumbnail, onProductSelect, selectedProductId }) => {
   const sidebarRef = useRef(null);
@@ -21,7 +21,7 @@ const Sidebar = ({ thumbnail, onProductSelect, selectedProductId }) => {
 
   return (
     <div className='sidebar' ref={sidebarRef}>
-      <h2>제품 썸네일</h2>
+      {/* <h2>제품 썸네일</h2> */}
       <div className='thumbnail-container'>
         {thumbnail && thumbnail.length > 0 ? (
           thumbnail.map((item) => (
