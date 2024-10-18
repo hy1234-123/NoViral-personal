@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import './Sidebar.css';
+import '../css/Sidebar.css';
 
 const Sidebar = ({ thumbnail, onProductSelect, selectedProductId }) => {
   const sidebarRef = useRef(null);
