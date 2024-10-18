@@ -1,0 +1,315 @@
+/* Google Fonts 가져오기 */
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+/* Pretendard 폰트 가져오기 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+/* MainPage.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.main-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 공지사항 바 */
+.notice-bar {
+  margin-top: 0;
+  position: fixed;
+  top: 64px;
+  width: 100%;
+  height: 40px;
+  background-color: #13161b;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: 850;
+}
+
+.notice-text-wrapper {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.notice-text {
+  font-family: "pretendard";
+  font-size: 14px;
+  color: white;
+  text-decoration: underline;
+  font-weight: 400;
+  line-height: 16.71px;
+  letter-spacing: 0.05em;
+}
+
+.notice-text.animate {
+  animation: slide 15s linear infinite;
+}
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* 슬라이드 이미지 섹션 */
+.slide-section {
+  margin-top: 50px; /* 네비게이션 바 높이만큼 마진 추가 */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 0px;
+}
+
+.slide-content {
+  width: 100%;
+  height: 100%;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 인기 카테고리 섹션 */
+.popular-category {
+  width: 100%;
+}
+
+.popular-category-container {
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.popular-category-header {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 11px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #232a35; /* 하단 가로선 추가 */
+}
+.popular-category h2 {
+  font-family: "pretendard";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.09px;
+  letter-spacing: 0.05em;
+  margin: 0;
+  color: #13161b;
+  margin-left: 32px;
+}
+
+/* 키보드, 키보드, 마우스 텍스트 스타일 */
+.category-text p {
+  font-family: "Pretendard";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28.64px;
+  letter-spacing: 0.05em;
+  text-align: left;
+  margin-left: 32px;
+  margin-top: 32px;
+}
+
+.category-section .category-text p.user-level {
+  font-family: "Pretendard";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23.87px;
+  letter-spacing: 0.05em;
+  text-align: left;
+  color: #bcc4d0;
+  margin-top: 8px;
+}
+
+/* 상품카테고리 및 유저 구분 섹션 */
+.category-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: center;
+  height: 342px;
+  border-bottom: 1px solid #232a35; /* 하단 가로선 추가 */
+  position: relative;
+}
+
+.category-text {
+  flex: 1;
+  margin-right: 20px; /* 상품카테고리와 상품 간의 간격 */
+}
+
+.left-container {
+  width: 284px;
+  height: 342px;
+  border-right: 1px solid #232a35; /* 세로줄 추가 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right-container {
+  flex: 1;
+  height: 342px;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background-color: #fdfdff;
+  border-bottom: 1px solid #000;
+  position: relative;
+}
+.stair-shape {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 72px;
+  height: 72px;
+}
+
+/* 화살표 버튼을 감싸는 컨테이너 */
+.arrow-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* 버튼 스타일 */
+.arrow-btn {
+  width: 142px;
+  height: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: 1px solid #232a35; /* 버튼 테두리 */
+  cursor: pointer;
+  border-right: none;
+  border-bottom: none;
+}
+
+/* 커서를 비활성화 상태로 변경 */
+.arrow-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* 상품 그리드 */
+.product-grid {
+  display: flex;
+  width: 100%;
+  gap: 48px; /* 상품 간의 간격 */
+  margin-left: 88px;
+  margin-top: 32px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.product-card {
+  width: 398px; /* 고정된 너비 설정 */
+  height: 278px; /* 고정된 높이 설정 */
+  border: 1px solid #bcc4d0;
+  padding: 15px;
+  text-align: center;
+  background-color: white;
+  flex-shrink: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-info {
+  font-family: "pretendard", "Questrial";
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  color: #13161b;
+  text-align: left;
+  font-size: 12px;
+}
+
+.product-info span {
+  color: #7787a2;
+}
+
+.product-info .used-price {
+  margin-right: 0;
+}
+.product-info h3 {
+  margin-bottom: 5px; /* h3와 p 사이의 간격 설정 */
+  margin-right: 10px;
+}
+
+.product-info p {
+  margin-bottom: 3px; /* 각 p 태그 사이의 간격 설정 */
+}
+/* 반응형 설정 */
+/* 1250px 이하 */
+@media (max-width: 1250px) {
+  .slide-content {
+    width: 100%;
+  }
+
+  .product-card {
+    width: 40%;
+  }
+}
+
+/* 768px 이하 */
+@media (max-width: 768px) {
+  .slide-content {
+    width: 100%;
+  }
+
+  .product-card {
+    width: 80%;
+  }
+  .left-container {
+    width: 200px;
+  }
+}
+/* 600px 이하 */
+@media (max-width: 600px) {
+  .slide-content {
+    width: 100%;
+  }
+
+  .product-card {
+    width: 100%;
+  }
+
+  .slide-content {
+    width: 100%;
+  }
+  .left-container {
+    width: 100px;
+  }
+  .category-text p {
+    font-size: 14px; /* 키보드 텍스트 크기 줄이기 */
+  }
+  .category-section .category-text p.user-level {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
