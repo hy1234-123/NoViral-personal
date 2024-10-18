@@ -60,7 +60,7 @@ function Modal({ isOpen, onClose, type, addOpinion }) {
             onChange={(e) => setContent(e.target.value)}
           />
           <small>0/1000</small>
-          <Button text="의견 등록" type="submit" />
+          <Button type="submit">의견 등록</Button>
         </form>
       );
     } else if (type === 'report') {
@@ -82,7 +82,7 @@ function Modal({ isOpen, onClose, type, addOpinion }) {
 -
 -'></textarea>
           <small>0/500</small>
-          <Button text="신고 접수" type="submit" />
+          <Button type="submit">신고 접수</Button>
         </form>
       );
     }

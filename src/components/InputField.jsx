@@ -3,11 +3,13 @@ import "../css/InputField.css";
 
 const InputField = ({
   label = "라벨",
+  label2 = "", // 두 번째 라벨 (단위 표시용)
   type = "text",
-  placeholder = "Enter your email",
+  placeholder = "Enter your value",
   value,
   onChange,
-  status = "default", // 상태를 지정할 수 있도록 기본값 설정
+  status = "default", // 상태 지정
+  className = "", // 기본 className 설정
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -19,17 +21,20 @@ const InputField = ({
   };
 
   return (
-    <div className={`input-container ${status}`}>
+    <div className={`input-container ${status} ${className}`}>
+      {/* 첫 번째 라벨 */}
       <label className="input-label">{label}</label>
       <input
         type={type}
         className="input-field"
-        placeholder={isFocused ? "" : placeholder} // 포커스 시 placeholder 제거
+        placeholder={isFocused ? "" : placeholder}
         value={value}
         onChange={onChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
       />
+      {/* 두 번째 라벨: 단위 표시용 */}
+      {label2 && <label className="input-label2">{label2}</label>}
     </div>
   );
 };
