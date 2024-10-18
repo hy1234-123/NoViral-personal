@@ -1,0 +1,18 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Footer의 스타일을 추가 */
+footer {
+  background-color: #13161b; /* 원하는 색상으로 설정 */
+  padding: 20px;
+  text-align: center;
+  color: #eee;
+  font-size: 12px;
+}

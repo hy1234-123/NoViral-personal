@@ -9,12 +9,6 @@
   position: absolute;
   right: 32px;
 }
-
-dialog form .close-button {
-  position: relative;
-  left: 6px;
-}
-
 .close-icon {
   width: 24px;
   height: 24px;
