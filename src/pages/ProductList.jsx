@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import ProductDisplay from '../components/productDisplay';
 import Sidebar from '../components/sidebar';
 import productData from '../data/product_data';
-import './ProductList.css';
+import '../css/ProductList.css';
 
 const ProductList = () => {
   const [selectedProductId, setSelectedProductId] = useState(null);

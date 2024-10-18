@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ProductDisplay.css";
+import "../css/ProductDisplay.css";
 
 const ProductDisplay = ({
   id,

@@ -30,12 +30,12 @@
   transition: transform 0.2s, box-shadow 0.2s;
   overflow: hidden;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .thumbnail-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .thumbnail-item.selected {
@@ -55,10 +55,6 @@
   margin-left: 240px;
   overflow-y: auto;
   scroll-behavior: smooth;
-}
-
-.product-item:last-child {
-  border-bottom: none;
 }
 
 @media (max-width: 768px) {
