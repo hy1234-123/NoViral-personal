@@ -10,7 +10,7 @@
 import React from "react";
 import "../css/Button.css";
 
-function Button({ text, onClick, type = "button", disabled = false, className = "custom-button" }) {
+function Button({ children, onClick, type = "button", disabled = false, className = "custom-button" }) {
   return (
     <button
       className={className}
@@ -18,7 +18,7 @@ function Button({ text, onClick, type = "button", disabled = false, className = 
       type={type}
       disabled={disabled}
     >
-      {text}
+      {children}
     </button>
   );
 }

@@ -10,6 +10,7 @@
   background-color: white;
   padding: 0 32px;
   border-bottom: 1px solid #000; /* 가로줄 추가 */
+  box-sizing: border-box;
 }
 
 /* 네비게이션 바 안의 콘텐츠 */
@@ -44,7 +45,7 @@
 }
 
 .nav-item {
-  margin-left: 30px;
+  margin-left: 48px;
   position: relative;
 }
 
@@ -85,6 +86,7 @@
   margin-right: -300px;
   padding: 24px 0;
   border-top: 1px solid #000;
+  box-sizing: border-box;
 }
 .navbar.open-dropdown {
   border-bottom: none;

@@ -1,10 +1,11 @@
 import React from 'react'
-import {NavBar} from './'
+import { NavBar, SubNavBar } from './'
 
 export default function Header() {
   return (
     <header>
-      <NavBar/>
+      <NavBar />
+      <SubNavBar />
     </header>
   )
 }

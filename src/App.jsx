@@ -1,9 +1,9 @@
-import { React } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ProductDetails from "./pages/ProductDetails";
-import Discussion from "./pages/Discussion";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import { React } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ProductDetails from './pages/ProductDetails';
+import Discussion from './pages/Discussion';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import ProductList from "./pages/ProductList";
 import "./App.css";
 
@@ -21,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

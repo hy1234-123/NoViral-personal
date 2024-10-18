@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Button } from '../components';
+import { Button, SteppedCorner } from '../components';
 import '../css/productDetails.css';
 
 function ProductDetails() {
@@ -33,16 +33,20 @@ function ProductDetails() {
     <main>
       <section className="product-overview">
         <article className='product-info'>
-          <h2>{product.productName}</h2>
+          <h2><span>#{id} </span>{product.productName}</h2>
           <dl>
             {Object.entries(product.specs).map(([specName, specValue]) => (
-              <div key={specName}>
-                <dt>{specName}</dt>
-                <dd>{specValue}</dd>
-              </div>
+              specName !== '옵션' && (
+                <div key={specName}>
+                  <dt>{specName} </dt>
+                  <dd>{Array.isArray(specValue) ? specValue.join(', ') : specValue}</dd>
+                </div>
+              )
             ))}
           </dl>
+          <div>{product.specs.옵션}</div>
         </article>
+        <SteppedCorner />
         <div className='popular-opinions'>
           <h2>찬성을 많이 받은 상품 의견</h2>
           {product.opinions.slice()
@@ -61,18 +65,17 @@ function ProductDetails() {
                       minute: '2-digit',
                       second: '2-digit',
                       hour12: false,
-                    })}
+                    }).replace(/(\d{2})\. (\d{2})\. (\d{2})\. /, '$1-$2-$3 ')}
                   </time>
                   <span>{opinion.author}</span>
                 </small>
               </article>
             ))}
-          <Button text="상품 의견 제시" onClick={() => goToDiscussion()}/>
+          <Button onClick={() => goToDiscussion()}>상품 의견 제시</Button>
         </div>
       </section>
-
       <section className='discussion-section'>
-        <img/>
+        <img src="/images/logitech_g102.png" alt="" />
       </section>
     </main>
   );

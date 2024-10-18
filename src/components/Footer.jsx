@@ -1,7 +1,13 @@
-import React from 'react'
+// src/components/Footer.jsx
+import React from "react";
+// import "./Footer.css";
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer></footer>
-  )
-}
+    <footer className="footer-placeholder">
+      <p>여기에 푸터가 들어갈 예정입니다.</p>
+    </footer>
+  );
+};
+
+export default Footer;
