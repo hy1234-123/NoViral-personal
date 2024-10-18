@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import ProductDisplay from '../components/productDisplay';
 import Sidebar from '../components/sidebar';
 import productData from '../data/product_data';
-import '../css/ProductList.css';
+import './ProductList.css';
 
 const ProductList = () => {
   const [selectedProductId, setSelectedProductId] = useState(null);
@@ -22,23 +22,25 @@ const ProductList = () => {
 
   const scrollToProduct = (productId) => {
     const productIndex = productData.findIndex(product => product.id === productId);
-    if (productRefs.current[productIndex] && contentRef.current) {
-      const element = productRefs.current[productIndex];
+    const element = productRefs.current[productIndex];
+
+    if(element && contentRef) {
       const containerRect = contentRef.current.getBoundingClientRect();
       const elementRect = element.getBoundingClientRect();
-      
+
       const yOffset = -19;
-      const scrollTop = contentRef.current.scrollTop + elementRect.top - containerRect.top + yOffset;
-      
+      const scrollTop = contentRef.current.scrollTop + elementRect.top - containerRect + yOffset;
+
       contentRef.current.scrollTo({
         top: scrollTop,
         behavior: 'smooth'
       });
-    } else {
+    }
+    else {
       console.log('Ref not found');
     }
   };
-
+  
   useEffect(() => {
     observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
