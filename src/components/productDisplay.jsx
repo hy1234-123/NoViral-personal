@@ -53,24 +53,24 @@ const ProductDisplay = ({
           {displayedProduct.product_name}
         </h2>
         <div className="specs">
-          <p>
+          <p className="details">
             세로 <span>{displayedProduct.depth}</span>
           </p>
-          <p>
+          <p className="details">
             가로 <span>{displayedProduct.width}</span>
           </p>
-          <p>
+          <p className="details">
             높이 <span>{displayedProduct.height}</span>
           </p>
-          <p>
+          <p className="details">
             무게 <span>{displayedProduct.weight}</span>
           </p>
-          <p>
+          <p className="details">
             색상 <span>{displayedProduct.color}</span>
           </p>
-          <p className="description">{displayedProduct.description}</p>
+          <p className="description details"><span>{displayedProduct.description}</span></p>
         </div>
-        <p className="price">
+        <p className="price details">
           {displayedProduct.price} {displayedProduct.currency}
         </p>
       </div>
