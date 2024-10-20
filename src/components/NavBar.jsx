@@ -40,7 +40,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="nav-content">
         <div className="logo">
-          <a href="/">NOVIRAL</a>
+          <Link to="/">NOVIRAL</Link>
         </div>
         <ul className="nav-links">
           {/* PRODUCT 드롭다운 */}
@@ -55,13 +55,13 @@ function Navbar() {
             {isDropdownOpen && (
               <ul className="dropdown-menu">
                 <li className="dropdown-item">
-                  <a href="/category1">Keyboard</a>
+                  <Link to="#">Keyboard</Link>
                 </li>
                 <li className="dropdown-item">
                   <Link to="/productList">Mouse</Link>
                 </li>
                 <li className="dropdown-item">
-                  <a href="/category3">Sounds</a>
+                  <Link to="#">Sounds</Link>
                 </li>
               </ul>
             )}
