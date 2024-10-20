@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ProductDisplay from '../components/productDisplay';
-import Sidebar from '../components/Sidebar';
-import productData from '../data/product_data';
+import Sidebar from '../components/sidebar';
+import productData from '../../public/data/product_data';
 import '../css/ProductList.css';
 
 const ProductList = () => {
