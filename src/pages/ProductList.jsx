@@ -10,6 +10,7 @@ const ProductList = () => {
   const productRefs = useRef([]);
   const observerRef = useRef(null);
   const contentRef = useRef(null);
+  const lastScrollTop = useRef(0);
 
   const thumbnail = productData.map(product => ({
     id: product.id,
@@ -26,21 +27,18 @@ const ProductList = () => {
   const scrollToProduct = (productId) => {
     const productIndex = productData.findIndex(product => product.id === productId);
     const element = productRefs.current[productIndex];
-
-    if(element && contentRef.current) {
+  
+    if (element && contentRef.current) {
+      const headerHeight = 26;
+  
       const containerRect = contentRef.current.getBoundingClientRect();
       const elementRect = element.getBoundingClientRect();
-
-      const yOffset = -19;
-      const scrollTop = contentRef.current.scrollTop + elementRect.top - containerRect.top + yOffset;
-
+      const relativeTop = elementRect.top - containerRect.top + contentRef.current.scrollTop;
+  
       contentRef.current.scrollTo({
-        top: scrollTop,
+        top: relativeTop - headerHeight,
         behavior: 'smooth'
       });
-    }
-    else {
-      console.log('Ref not found');
     }
   };
   
@@ -49,12 +47,23 @@ const ProductList = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const productId = parseInt(entry.target.dataset.productId);
-          setSelectedProductId(productId);
-          const visibleProduct = productData.find(product => product.id === productId);
-          setSelectedProduct(visibleProduct);
+          const scrollTop = contentRef.current.scrollTop;
+          const scrollDirection = scrollTop > lastScrollTop.current ? 'down' : 'up';
+          lastScrollTop.current = scrollTop;
+
+          const threshold = scrollDirection === 'down' ? 0.5 : 0.8;
+
+          if (entry.intersectionRatio >= threshold) {
+            setSelectedProductId(productId);
+            const visibleProduct = productData.find(product => product.id === productId);
+            setSelectedProduct(visibleProduct);
+          }
         }
       });
-    }, { threshold: 0.5 });
+    }, { 
+      threshold: [0.5, 0.8],
+      root: contentRef.current 
+    });
 
     productRefs.current.forEach((ref) => {
       if (ref) observerRef.current.observe(ref);

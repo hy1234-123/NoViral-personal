@@ -8,9 +8,8 @@ main {
   flex: 1;
 }
 
-/* Footer의 스타일을 추가 */
-footer {
-  background-color: #13161b; /* 원하는 색상으로 설정 */
+.footer {
+  background-color: #13161b;
   padding: 20px;
   text-align: center;
   color: #eee;
