@@ -1,75 +1,68 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button, CloseButton } from './';
 
-function Modal({ isOpen, onClose, type, addOpinion }) {
-  const [content, setContent] = useState('');
+function Modal({ isOpen, onClose, type }) {
+  const dialogRef = useRef(null);
+  const [opinionText, setOpinionText] = useState(''); // 의견 텍스트 상태
+  const [reportText, setReportText] = useState(''); // 신고 텍스트 상태
 
-  if (!isOpen) return null; // 모달이 열리지 않았을 경우 렌더링하지 않음
+  useEffect(() => {
+    const dialog = dialogRef.current;
 
-  const handleNewOpinionSubmit = async (e) => {
-    e.preventDefault();
-
-    if (content.trim() === '') {
-      return; // 빈 내용이 있으면 제출하지 않음
+    if (isOpen) {
+      dialog.showModal(); // 모달을 열 때 showModal() 사용
+    } else {
+      if (dialog.open) dialog.close(); // 모달이 열려 있으면 close()로 닫음
     }
+  }, [isOpen]);
 
-    const newOpinion = {
-      content,
-      author: '사용자',
-      date: new Date().toISOString(),
-      upvotes: 0,
-      downvotes: 0,
-    };
+  const handleClose = () => {
+    dialogRef.current.close(); // 명시적으로 모달을 닫음
+    onClose(); // 부모로부터 전달받은 onClose 실행
+  };
 
-    try {
-      // 서버에 POST 요청 보내기 (localhost:5173으로 요청)
-      const response = await fetch(`http://localhost:5173/api/products/${productId}/opinions`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newOpinion),
-      });
+  // 모달의 헤더 부분을 공통 함수로 분리
+  const renderHeader = (title) => (
+    <div className="dialog-header">
+      <h2>{title}</h2>
+      <CloseButton onClick={handleClose} />
+    </div>
+  );
 
-      if (response.ok) {
-        // API 요청 성공 시, 로컬 상태 업데이트
-        addOpinion(newOpinion); // 클라이언트에서 상태 관리
-        onClose(); // 모달 닫기
-      } else {
-        console.error('Failed to add opinion');
-      }
-    } catch (error) {
-      console.error('Error submitting opinion:', error);
-    }
+  // 의견 텍스트 상태 업데이트
+  const handleOpinionChange = (e) => {
+    setOpinionText(e.target.value);
+  };
+
+  // 신고 텍스트 상태 업데이트
+  const handleReportChange = (e) => {
+    setReportText(e.target.value);
   };
 
   const renderContent = () => {
     if (type === 'newOpinion') {
       return (
-        <form method="dialog" onSubmit={handleNewOpinionSubmit}>
-          <div className="dialog-header">
-            <h2>새 의견 등록</h2>
-            <CloseButton onClick={onClose} />
-          </div>
-          <textarea className='newOpinion'
+        <form method="dialog">
+          {renderHeader('새 의견 등록')}
+          <textarea
+            className='newOpinion'
             placeholder="의견 등록 시 주의 사항
 -
 -
 -"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
+            value={opinionText}
+            onChange={handleOpinionChange}
+            maxLength="1000" // 글자 수 제한 설정
           />
-          <small>0/1000</small>
+          <small>{opinionText.length}/1000</small> {/* 글자 수 표시 */}
           <Button type="submit">의견 등록</Button>
         </form>
       );
-    } else if (type === 'report') {
+    }
+    if (type === 'report') {
       return (
         <form method="dialog">
-          <div className="dialog-header">
-            <h2>의견 제시자 신고</h2>
-            <CloseButton onClick={onClose} />
-          </div>
+          {renderHeader('의견 제시자 신고')}
           <label htmlFor="reportReason"></label>
           <input list="reasonList" id="reportReason" name="reportReason" placeholder='신고사유 선택' />
           <datalist id="reasonList">
@@ -77,11 +70,19 @@ function Modal({ isOpen, onClose, type, addOpinion }) {
             <option value="옵션 2" />
           </datalist>
           <label htmlFor="reportDetails"></label>
-          <textarea className='report' name="reportDetails" id="reportDetails" placeholder='신고시 주의 사항
+          <textarea
+            className='report'
+            name="reportDetails"
+            id="reportDetails"
+            placeholder='신고시 주의 사항
 -
 -
--'></textarea>
-          <small>0/500</small>
+-'
+            value={reportText}
+            onChange={handleReportChange}
+            maxLength="500" // 글자 수 제한 설정
+          />
+          <small>{reportText.length}/500</small> {/* 글자 수 표시 */}
           <Button type="submit">신고 접수</Button>
         </form>
       );
@@ -90,7 +91,7 @@ function Modal({ isOpen, onClose, type, addOpinion }) {
   };
 
   return (
-    <dialog open>
+    <dialog ref={dialogRef} onClose={handleClose}>
       {renderContent()}
     </dialog>
   );

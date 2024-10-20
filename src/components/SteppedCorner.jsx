@@ -16,7 +16,7 @@ const SteppedCorner = () => {
     height: '24px'
   };
 
-  const borderTl = {
+  const borderTL = {
     borderTop: '1px solid black',
     borderLeft: '1px solid black'
   };
@@ -44,25 +44,25 @@ const SteppedCorner = () => {
       <div style={colStyle} className="border-col">
         <div style={{ ...cellStyle, ...h24 }} className="cell"></div>
         <div style={{ ...cellStyle, ...h24 }} className="cell"></div>
-        <div style={{ ...cellStyle, ...h24, ...borderTl }} className="cell border-tl"></div>
+        <div style={{ ...cellStyle, ...h24, ...borderTL }} className="cell border-tl"></div>
         <div style={{ ...cellStyle, ...h16 }} className="cell h16"></div>
-        <div style={{ ...cellStyle, ...h24, ...borderTl }} className="cell border-tl"></div>
+        <div style={{ ...cellStyle, ...h24, ...borderTL }} className="cell border-tl"></div>
         <div style={{ ...cellStyle, ...h24 }} className="cell"></div>
       </div>
       {/* 두 번째 열 */}
       <div style={colStyle} className="border-col">
         <div style={{ ...cellStyle, ...h24 }} className="cell"></div>
-        <div style={{ ...cellStyle, ...h24, ...borderTl }} className="cell border-tl"></div>
+        <div style={{ ...cellStyle, ...h24, ...borderTL }} className="cell border-tl"></div>
         <div style={{ ...cellStyle, ...h16 }} className="cell h16"></div>
-        <div style={{ ...cellStyle, ...h24, ...borderTl }} className="cell border-tl"></div>
+        <div style={{ ...cellStyle, ...h24, ...borderTL }} className="cell border-tl"></div>
         <div style={{ ...cellStyle, ...h24 }} className="cell"></div>
         <div style={{ ...cellStyle, ...h24 }} className="cell"></div>
       </div>
       {/* 세 번째 열 */}
       <div style={colStyle} className="border-col">
-        <div style={{ ...cellStyle, ...h24, ...borderTl }} className="cell border-tl"></div>
+        <div style={{ ...cellStyle, ...h24, ...borderTL }} className="cell border-tl"></div>
         <div style={{ ...cellStyle, ...h16 }} className="cell h16"></div>
-        <div style={{ ...cellStyle, ...h24, ...borderTl, ...borderR }} className="cell border-tl border-r"></div>
+        <div style={{ ...cellStyle, ...h24, ...borderTL, ...borderR }} className="cell border-tl border-r"></div>
         <div style={{ ...cellStyle, ...h24, ...borderR }} className="cell border-r"></div>
         <div style={{ ...cellStyle, ...h24, ...borderR }} className="cell border-r"></div>
         <div style={{ ...cellStyle, ...h24, ...borderR }} className="cell"></div>
