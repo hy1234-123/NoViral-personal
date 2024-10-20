@@ -70,9 +70,9 @@ function Navbar() {
           {/* 로그인 상태에 따른 UI */}
           {!isLoggedIn ? (
             <li className="nav-item">
-              <a href="/login" className="nav-link">
+              <Link to="/login" className="nav-link">
                 Login
-              </a>
+              </Link>
             </li>
           ) : (
             <li
@@ -86,14 +86,14 @@ function Navbar() {
               {isMyInfoOpen && (
                 <ul className="myinfo-menu">
                   <li className="myinfo-item">
-                    <a href="/my-comments">
+                    <Link to="#">
                       My opinion{" "}
                       <span className="comment-count">{userCommentsCount}</span>
-                    </a>
+                    </Link>
                   </li>
                   <li className="myinfo-item">
                     <div className="inline-options">
-                      <a href="/change-password">비밀번호 변경</a>
+                      <Link to="#">비밀번호 변경</Link>
                       <a href="#" onClick={handleDeleteAccount}>
                         회원탈퇴
                       </a>
