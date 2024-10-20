@@ -3,7 +3,7 @@ import "../css/CloseButton.css";
 
 function CloseButton({ onClick, style }) {
   return (
-    <button className="close-button" onClick={onClick} style={style}>
+    <button className="close-button" onClick={onClick} style={style} type="button">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

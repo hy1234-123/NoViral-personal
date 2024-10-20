@@ -1,29 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Button, Modal, SteppedCorner } from '../components';
-import '../css/productDetails.css'; // 상품 상세 정보와 스타일 공유
+import UseProductData from '../hooks/UseProductData';
+import { Button, Modal, ProductOverview } from '../components';
 
 function Discussion() {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
+  const product = UseProductData(id);
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalType] = useState('');
-  const navigate = useNavigate(); // useNavigate 훅 사용
-
-  useEffect(() => {
-    fetchProductData();
-  }, [id]);
-
-  async function fetchProductData() {
-    try {
-      const response = await fetch('/data/products.json');
-      const products = await response.json();
-      const product = products.find(p => p.id === parseInt(id));
-      setProduct(product);
-    } catch (error) {
-      console.error('Error fetching product data:', error);
-    }
-  }
 
   const openModal = (type) => {
     setModalType(type);
@@ -35,68 +20,18 @@ function Discussion() {
     setModalType('');
   };
 
-  const addOpinion = (newOpinion) => {
-    const updatedProduct = {
-      ...product,
-      opinions: [...product.opinions, newOpinion]
-    };
-    setProduct(updatedProduct);
-  };
-
   const goToDetails = () => {
-    navigate(`/details/${id}`); // '/details/:id'로 이동
+    navigate(`/details/${id}`);
   };
-
-  if (!product) return <p>Loading...</p>;
 
   return (
-    <main>
-      <section className="product-overview">
-        <article className='product-info'>
-          <h2><span>#{id} </span>{product.productName}</h2>
-          <dl>
-            {Object.entries(product.specs).map(([specName, specValue]) => (
-              specName !== '옵션' && (
-                <div key={specName}>
-                  <dt>{specName} </dt>
-                  <dd>{Array.isArray(specValue) ? specValue.join(', ') : specValue}</dd>
-                </div>
-              )
-            ))}
-          </dl>
-          <div>{product.specs.옵션}</div>
-        </article>
-        <SteppedCorner />
-        <div className='popular-opinions'>
-          <h2>찬성을 많이 받은 상품 의견</h2>
-          {product.opinions.slice()
-            .sort((a, b) => b.upvotes - a.upvotes)
-            .map((opinion, index) => (
-              <article key={index}>
-                <p>{opinion.content}</p>
-                <small>
-                  {/* #{index + 1}/ 찬 {opinion.upvotes}/반 {opinion.downvotes}&nbsp; */}
-                  <time dateTime={opinion.date}>
-                    {new Date(opinion.date).toLocaleDateString('ko-KR', {
-                      year: '2-digit',
-                      month: '2-digit',
-                      day: '2-digit',
-                      hour: '2-digit',
-                      minute: '2-digit',
-                      second: '2-digit',
-                      hour12: false,
-                    }).replace(/(\d{2})\. (\d{2})\. (\d{2})\. /, '$1-$2-$3 ')}
-                  </time>
-                  <span>{opinion.author}</span>
-                </small>
-              </article>
-            ))}
-          <Button onClick={() => goToDetails()} className='custom-button white'>
-            ← 상품 상세 페이지로 이동
-          </Button>
-        </div>
-      </section>
-
+    <main className='Details-n-Discussion'>
+      <ProductOverview
+        product={product}
+        id={id}
+        buttonText="← 상품 상세 페이지로 이동"
+        buttonAction={goToDetails}
+      />
       <section className='discussion-section'>
         <div className='discussion-header'>
           <h2>상품 토론</h2>
@@ -104,12 +39,11 @@ function Discussion() {
             새 의견 등록
           </a>
         </div>
-        {product.opinions.slice().reverse().map(opinion => (
+        {product?.opinions.slice().reverse().map(opinion => (
           <article key={opinion.date}>
             <p>{opinion.content}</p>
             <div className='opinion-footer'>
               <small>
-                {/* 찬 {opinion.upvotes}/반 {opinion.downvotes}&nbsp; */}
                 <time dateTime={opinion.date}>
                   {new Date(opinion.date).toLocaleDateString('ko-KR', {
                     year: '2-digit',
@@ -138,9 +72,7 @@ function Discussion() {
           </article>
         ))}
       </section>
-
-      {/* Modal 컴포넌트 사용 */}
-      <Modal isOpen={modalOpen} onClose={closeModal} type={modalType} addOpinion={addOpinion} />
+      <Modal isOpen={modalOpen} onClose={closeModal} type={modalType} />
     </main>
   );
 }

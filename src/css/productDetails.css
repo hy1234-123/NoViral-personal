@@ -1,12 +1,12 @@
 /* 페이지 내 공통 속성 */
-main {
+main.Details-n-Discussion {
     font-family: "Pretendard";
     display: flex;
     padding: 32px;
     gap: 32px;
 }
 
-h2 {
+.Details-n-Discussion h2 {
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
@@ -14,13 +14,13 @@ h2 {
     margin: 0;
 }
 
-p {
+.Details-n-Discussion p {
     border: 1px solid #BCC4D0;
     border-radius: 4px;
     padding: 8px;
 }
 
-small {
+.Details-n-Discussion small {
     color: #BCC4D0;
     line-height: 16px;
 }

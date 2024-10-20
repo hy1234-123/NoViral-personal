@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../css/NavBar.css";
 
 function Navbar() {
@@ -57,7 +58,7 @@ function Navbar() {
                   <a href="/category1">Keyboard</a>
                 </li>
                 <li className="dropdown-item">
-                  <a href="/category2">Mouse</a>
+                  <Link to="/productList">Mouse</Link>
                 </li>
                 <li className="dropdown-item">
                   <a href="/category3">Sounds</a>

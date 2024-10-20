@@ -12,4 +12,6 @@ export { default as Modal } from './Modal';
 export { default as NavBar } from './NavBar';
 export { default as SteppedCorner } from './SteppedCorner';
 export { default as SubNavBar } from './SubNavBar';
+export { default as SideBar } from './Sidebar';
 export { default as ProductDisplay } from './productDisplay';
+export { default as ProductOverview } from './ProductOverview';

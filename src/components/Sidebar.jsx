@@ -11,9 +11,10 @@ const Sidebar = ({ thumbnail, onProductSelect, selectedProductId }) => {
       const itemRect = selectedItemRef.current.getBoundingClientRect();
 
       if (itemRect.top < sidebarRect.top || itemRect.bottom > sidebarRect.bottom) {
-        selectedItemRef.current.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
+        const scrollTop = selectedItemRef.current.offsetTop - sidebarRef.current.offsetTop;
+        sidebarRef.current.scrollTo({
+          top: scrollTop,
+          behavior: 'smooth'
         });
       }
     }
@@ -21,7 +22,6 @@ const Sidebar = ({ thumbnail, onProductSelect, selectedProductId }) => {
 
   return (
     <div className='sidebar' ref={sidebarRef}>
-      <h2>제품 썸네일</h2>
       <div className='thumbnail-container'>
         {thumbnail && thumbnail.length > 0 ? (
           thumbnail.map((item) => (
