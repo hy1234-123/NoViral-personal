@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import Navbar from "../components/NavBar.jsx";
-import Footer from "../components/Footer.jsx";
-import CloseButton from "../components/CloseButton.jsx";
-import "./MainPage.css";
+import { NavBar, CloseButton } from "../components";
+import "../css/MainPage.css";
 
 function MainPage() {
   const [isNoticeVisible, setIsNoticeVisible] = useState(true);
@@ -197,7 +195,7 @@ function MainPage() {
   return (
     <div className="main-container">
       <header>
-        <Navbar />
+        <NavBar />
       </header>
 
       {isNoticeVisible && (
@@ -291,20 +289,20 @@ function MainPage() {
 
             <div className="right-container" ref={beginnerProductContainerRef}>
               <div
-                className="product-grid"
+                className="main-product-grid"
                 style={{
                   transform: `translateX(-${beginnerIndex * (398 + 48)}px)`,
                   transition: "transform 0.5s ease",
                 }}
               >
                 {beginnerProducts.map((item) => (
-                  <div key={item.id} className="product-card">
+                  <div key={item.id} className="main-product-card">
                     <img
                       src={item.imageUrl}
                       alt={`상품 ${item.id}`}
-                      className="product-image"
+                      className="main-product-image"
                     />
-                    <div className="product-info">
+                    <div className="main-product-info">
                       <h3>
                         <span style={{ color: "#FF9900" }}>
                           {item.name.split(" ")[0]}
@@ -422,20 +420,20 @@ function MainPage() {
               ref={intermediateProductContainerRef}
             >
               <div
-                className="product-grid"
+                className="main-product-grid"
                 style={{
                   transform: `translateX(-${intermediateIndex * (398 + 48)}px)`,
                   transition: "transform 0.5s ease",
                 }}
               >
                 {intermediateProducts.map((item) => (
-                  <div key={item.id} className="product-card">
+                  <div key={item.id} className="main-product-card">
                     <img
                       src={item.imageUrl}
                       alt={`상품 ${item.id}`}
-                      className="product-image"
+                      className="main-product-image"
                     />
-                    <div className="product-info">
+                    <div className="main-product-info">
                       <h3>
                         <span style={{ color: "#FF9900" }}>
                           {item.name.split(" ")[0]}
@@ -542,20 +540,20 @@ function MainPage() {
 
             <div className="right-container" ref={highEndProductContainerRef}>
               <div
-                className="product-grid"
+                className="main-product-grid"
                 style={{
                   transform: `translateX(-${highEndIndex * (398 + 48)}px)`,
                   transition: "transform 0.5s ease",
                 }}
               >
                 {highEndProducts.map((item) => (
-                  <div key={item.id} className="product-card">
+                  <div key={item.id} className="main-product-card">
                     <img
                       src={item.imageUrl}
                       alt={`상품 ${item.id}`}
-                      className="product-image"
+                      className="main-product-image"
                     />
-                    <div className="product-info">
+                    <div className="main-product-info">
                       <h3>
                         <span style={{ color: "#FF9900" }}>
                           {item.name.split(" ")[0]}
@@ -594,7 +592,6 @@ function MainPage() {
             </div>
           </div>
         </section>
-        <Footer />
       </main>
     </div>
   );

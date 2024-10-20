@@ -11,8 +11,9 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <Header />
       <Routes>
+        {/* 메인 페이지가 아닌 경우에만 Header를 렌더링 */}
+        {location.pathname !== "/" && <Header />}
         <Route path="/" element={<MainPage />} />
         <Route path="/productList" element={<ProductList />} />
         <Route path="/details/:id" element={<ProductDetails />} />
