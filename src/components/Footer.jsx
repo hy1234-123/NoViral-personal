@@ -4,7 +4,7 @@ import "../css/Footer.css";
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>여기에 푸터가 들어갈 예정입니다.</p>
+      <p>Team Noviral | github.com/Peace1128/NoViral</p>
     </footer>
   );
 };
