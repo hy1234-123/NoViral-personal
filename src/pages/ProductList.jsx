@@ -47,7 +47,54 @@ const ProductList = () => {
     }
   };
 
+  // useEffect(() => {
+  //   observerRef.current = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           const productId = parseInt(entry.target.dataset.productId);
+  //           const scrollTop = contentRef.current.scrollTop;
+  //           const scrollDirection =
+  //             scrollTop > lastScrollTop.current ? "down" : "up";
+  //           lastScrollTop.current = scrollTop;
+
+  //           const threshold = 0.5;
+
+  //           if (entry.intersectionRatio >= threshold) {
+  //             setSelectedProductId(productId);
+  //             const visibleProduct = productData.find(
+  //               (product) => product.id === productId
+  //             );
+  //             setSelectedProduct(visibleProduct);
+  //           }
+  //         }
+  //       });
+  //     },
+  //     {
+  //       threshold: [0.5],
+  //       root: contentRef.current,
+  //     }
+  //   );
+
+  //   productRefs.current.forEach((ref) => {
+  //     if (ref) observerRef.current.observe(ref);
+  //   });
+
+  //   return () => {
+  //     if (observerRef.current) {
+  //       observerRef.current.disconnect();
+  //     }
+  //   };
+  // }, []);
+
   useEffect(() => {
+
+    if (productData.length > 0 && !selectedProductId) {
+      const firstProductId = productData[0].id;
+      setSelectedProductId(firstProductId);
+      setSelectedProduct(productData[0]);
+    }
+
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -58,9 +105,7 @@ const ProductList = () => {
               scrollTop > lastScrollTop.current ? "down" : "up";
             lastScrollTop.current = scrollTop;
 
-            const threshold = 0.5;
-
-            if (entry.intersectionRatio >= threshold) {
+            if (entry.intersectionRatio >= 0.6 && entry.intersectionRatio <= 0.8) {
               setSelectedProductId(productId);
               const visibleProduct = productData.find(
                 (product) => product.id === productId
@@ -71,7 +116,7 @@ const ProductList = () => {
         });
       },
       {
-        threshold: [0.5],
+        threshold: [0.6, 0.8],
         root: contentRef.current,
       }
     );
@@ -86,6 +131,7 @@ const ProductList = () => {
       }
     };
   }, []);
+
 
   return (
     <div className="product-list-page">
