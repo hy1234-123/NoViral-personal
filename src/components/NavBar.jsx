@@ -4,20 +4,26 @@ import "../css/NavBar.css";
 
 function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMyInfoOpen, setIsMyInfoOpen] = useState(false);
-
   const [userCommentsCount, setUserCommentsCount] = useState(311);
+  let dropdownTimeout = null; // 드롭다운 타이머 변수
 
+  // 드롭다운 메뉴 열기
   const handleMouseEnter = () => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout); // 타이머 초기화
+    }
     setIsDropdownOpen(true);
   };
 
   const handleMouseLeave = () => {
-    setIsDropdownOpen(false);
+    dropdownTimeout = setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 300); // 0.3초 지연 후 닫힘
   };
 
+  // MyInfo 드롭다운 관련 핸들러
   const handleMyInfoEnter = () => {
     setIsMyInfoOpen(true);
   };
@@ -26,12 +32,14 @@ function Navbar() {
     setIsMyInfoOpen(false);
   };
 
+  // 회원 탈퇴 기능
   const handleDeleteAccount = () => {
     if (window.confirm("회원탈퇴를 진행하시겠습니까?")) {
-      window.location.href = "/delete-account"; // 회원탈퇴 페이지 임의지정
+      window.location.href = "/delete-account"; // 회원탈퇴 페이지 임의 지정
     }
   };
 
+  // 로그아웃 기능
   const handleLogout = () => {
     setIsLoggedIn(false);
   };

@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavBar, CloseButton } from "../components";
+import { useNavigate } from "react-router-dom";
 import "../css/MainPage.css";
 
 function MainPage() {
   const [isNoticeVisible, setIsNoticeVisible] = useState(true);
   const notice = "좌측으로 무한으로 애니메이션됩니다.";
   const noticeRef = useRef();
+  const navigate = useNavigate();
 
   const beginnerProductContainerRef = useRef();
   const intermediateProductContainerRef = useRef();
@@ -66,35 +68,35 @@ function MainPage() {
       name: "#1 Logitech Intermediate-Advanced",
       priceNew: 100000,
       priceUsed: 50000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
     {
       id: 2,
       name: "#2 Logitech Intermediate-Advanced",
       priceNew: 200000,
       priceUsed: 100000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
     {
       id: 3,
       name: "#3 Logitech Intermediate-Advanced",
       priceNew: 300000,
       priceUsed: 150000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
     {
       id: 4,
       name: "#4 Logitech Intermediate-Advanced",
       priceNew: 400000,
       priceUsed: 200000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
     {
       id: 5,
       name: "#5 Logitech Intermediate-Advanced",
       priceNew: 500000,
       priceUsed: 250000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
   ];
 
@@ -104,35 +106,35 @@ function MainPage() {
       name: "#1 Logitech High-End ",
       priceNew: 700000,
       priceUsed: 350000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
     {
       id: 8,
       name: "#2 Logitech High-End",
       priceNew: 800000,
       priceUsed: 400000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
     {
       id: 9,
       name: "#3 Logitech High-End",
       priceNew: 900000,
       priceUsed: 450000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
     {
       id: 10,
       name: "#4 Logitech High-End",
       priceNew: 1000000,
       priceUsed: 500000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
     {
       id: 11,
       name: "#5 Logitech High-End",
       priceNew: 1100000,
       priceUsed: 550000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
   ];
 
@@ -142,35 +144,35 @@ function MainPage() {
       name: "#1 Logitech Beginner",
       priceNew: 1300000,
       priceUsed: 650000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
     {
       id: 14,
       name: "#2 Logitech Beginner",
       priceNew: 1400000,
       priceUsed: 700000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
     {
       id: 15,
       name: "#3 Logitech Beginner",
       priceNew: 1500000,
       priceUsed: 750000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
     {
       id: 16,
       name: "#4 Logitech Beginner",
       priceNew: 1600000,
       priceUsed: 800000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
     {
       id: 17,
       name: "#5 Logitech Beginner",
       priceNew: 1700000,
       priceUsed: 850000,
-      imageUrl: "https://tinyurl.com/yc383kfs",
+      imageUrl: "/images/mouse.png",
     },
   ];
 
@@ -192,14 +194,15 @@ function MainPage() {
     }
   };
 
+  const handleProductClick = () => {
+    navigate(`/details/1`); // 모든 상품이 /details/1로 이동
+  };
   return (
     <div className="main-container">
-      <header>
-        <NavBar />
-      </header>
+      <NavBar />
 
       {isNoticeVisible && (
-        <div className="notice-bar">
+        <div className="notice-bar" style={{ display: "none" }}>
           <div className="notice-text-wrapper">
             <p className="notice-text" ref={noticeRef}>
               {notice}
@@ -213,7 +216,7 @@ function MainPage() {
         <section className="slide-section">
           <div className="slide-content">
             <img
-              src="https://tinyurl.com/bdern5xh"
+              src="/images/main-image.jpg"
               alt="사이트 소개 슬라이드"
               className="slide-image"
             />
@@ -296,7 +299,12 @@ function MainPage() {
                 }}
               >
                 {beginnerProducts.map((item) => (
-                  <div key={item.id} className="main-product-card">
+                  <div
+                    key={item.id}
+                    className="main-product-card"
+                    onClick={handleProductClick}
+                    style={{ cursor: "pointer" }}
+                  >
                     <img
                       src={item.imageUrl}
                       alt={`상품 ${item.id}`}
@@ -427,7 +435,12 @@ function MainPage() {
                 }}
               >
                 {intermediateProducts.map((item) => (
-                  <div key={item.id} className="main-product-card">
+                  <div
+                    key={item.id}
+                    className="main-product-card"
+                    onClick={handleProductClick}
+                    style={{ cursor: "pointer" }}
+                  >
                     <img
                       src={item.imageUrl}
                       alt={`상품 ${item.id}`}
@@ -547,7 +560,12 @@ function MainPage() {
                 }}
               >
                 {highEndProducts.map((item) => (
-                  <div key={item.id} className="main-product-card">
+                  <div
+                    key={item.id}
+                    className="main-product-card"
+                    onClick={handleProductClick}
+                    style={{ cursor: "pointer" }}
+                  >
                     <img
                       src={item.imageUrl}
                       alt={`상품 ${item.id}`}

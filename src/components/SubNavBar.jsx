@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import CloseButton from "../components/CloseButton";
 import InputField from "../components/InputField";
 import "../css/SubNavBar.css";
 
 const SubNavBar = () => {
-  const [activeTab, setActiveTab] = useState("입문용");
+  const [activeTab, setActiveTab] = useState(""); // 초기에는 탭이 비활성화 상태
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [inputValues, setInputValues] = useState({
     width: "",
@@ -13,9 +14,29 @@ const SubNavBar = () => {
     weight: "",
   });
   const [isButtonActive, setIsButtonActive] = useState(false); // 버튼 활성화 여부
+  const navigate = useNavigate();
+  const location = useLocation(); // 현재 경로 확인을 위한 훅
+
+  // 경로에 따라 activeTab을 설정
+  useEffect(() => {
+    if (location.pathname.includes("/ProductList")) {
+      setActiveTab("입문용");
+    } else if (location.pathname === "/discussion/1") {
+      setActiveTab(""); // 새 상품 등록 시 탭 비활성화
+    } else {
+      setActiveTab(""); // 다른 경로로 이동할 때 탭 비활성화
+    }
+  }, [location.pathname]);
 
   const handleTabClick = (tab) => {
-    setActiveTab(tab);
+    setActiveTab(tab); // 탭 상태 먼저 업데이트
+    if (tab === "입문용") {
+      navigate("/ProductList"); // 이후 페이지 이동
+    } else if (tab === "중상급") {
+      navigate("/ProductList");
+    } else if (tab === "하이엔드") {
+      navigate("/ProductList");
+    }
   };
 
   const handleFilterClick = () => {
@@ -23,7 +44,6 @@ const SubNavBar = () => {
   };
 
   const handleInputChange = (field, value) => {
-    // 소수점 뒤 2자리까지만 허용하며, 최대 입력값을 99999로 제한
     const regex = /^\d*\.?\d{0,2}$/; // 소수점 뒤 2자리까지 허용하는 정규식
 
     if (value === "" || (regex.test(value) && Number(value) <= 99999)) {
@@ -33,11 +53,26 @@ const SubNavBar = () => {
       };
       setInputValues(updatedValues);
 
-      // 하나라도 입력된 값이 있으면 버튼 활성화
       const isAnyFieldFilled = Object.values(updatedValues).some(
         (val) => val.trim() !== ""
       );
       setIsButtonActive(isAnyFieldFilled);
+    }
+  };
+
+  // 검색 버튼을 클릭하면 목록 페이지로 이동하고 상태를 초기화
+  const handleSearchClick = () => {
+    if (isButtonActive) {
+      // 검색 후 상태 초기화
+      setInputValues({
+        width: "",
+        height: "",
+        depth: "",
+        weight: "",
+      });
+      setIsButtonActive(false); // 버튼 비활성화
+
+      navigate("/ProductList"); // 검색 버튼 클릭 시 임의로 상품 목록 페이지로 이동
     }
   };
 
@@ -52,7 +87,6 @@ const SubNavBar = () => {
             입문용
           </span>
 
-          {/* 탭 사이에 SVG 추가 */}
           <svg
             width="1"
             height="12"
@@ -90,7 +124,7 @@ const SubNavBar = () => {
         <div className={`actions ${isFilterOpen ? "filter-open" : ""}`}>
           <span
             className="new-product"
-            onClick={() => (window.location.href = "/new-product")}
+            onClick={() => navigate("/discussion/1")}
           >
             새 상품 등록
           </span>
@@ -148,6 +182,7 @@ const SubNavBar = () => {
           <button
             className="search-btn"
             disabled={!isButtonActive} // 버튼 활성화 여부 제어
+            onClick={handleSearchClick} // 검색 버튼 클릭 시 이동
           >
             <svg
               width="18"
