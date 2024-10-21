@@ -123,54 +123,74 @@
      │     └── UseProductData.jsx
      │       
      └── css
-           ├── Sidebar.jsx
-           ├── Sidebar.jsx
-           ├── Sidebar.jsx
-           ├── Sidebar.jsx
-           ├── Sidebar.jsx
-           ├── Sidebar.jsx
-           ├── Sidebar.jsx
-           ├── Sidebar.jsx
-
-           └── Globalstyled.jsx
+           ├── Button.css
+           ├── CloseButton.css
+           ├── Footer.css
+           ├── InputField.css
+           ├── LoginPage.css
+           ├── MainPage.css
+           ├── productDetails.css
+           ├── productDisplay.css
+           ├── ProductList.css
+           ├── Sidebar.css
+           └── SubNavBar.css
 ```
 
-```
+<br>
 
-├─components
-│      Button.jsx
-│      CloseButton.jsx
-│      Footer.jsx
-│      Header.jsx
-│      index.js
-│      InputField.jsx
-│      Modal.jsx
-│      NavBar.jsx
-│      productDisplay.jsx
-│      ProductOverview.jsx
-│      Sidebar.jsx
-│      SteppedCorner.jsx
-│      SubNavBar.jsx
-│      
-├─css
-│      Button.css
-│      CloseButton.css
-│      Footer.css
-│      InputField.css
-│      LoginPage.css
-│      MainPage.css
-│      NavBar.css
-│      productDetails.css
-│      productDisplay.css
-│      ProductList.css
-│      Sidebar.css
-│      SubNavBar.css
-│      
-└─pages
-        Discussion.jsx
-        LoginPage.jsx
-        MainPage.jsx
-        ProductDetails.jsx
-        ProductList.jsx
-        ProductPage.jsx
-        
+## [6] 팀 역할
+
+### 🐢 황수범 (사파 개발자 겸 말 제일 많은사람 겸 PM)
+- **개발 외**
+  - 기획 (https://docs.google.com/presentation/d/1HGRkGJTlgUf4LgZTNhr4j82JmJDJIukIbqEtqNLN_Kw/edit?usp=sharing)
+  - 디자인 with Figma (https://www.figma.com/design/BPyHFvMkRNADBN2mL7rV7F/%5BEST_FE%5D-NoViral?node-id=0-1&t=gqWUfpzIfMiVGBpB-1)
+  - Task 관리 등
+- **FE**
+  - 갖가지 기타 오류사항 수정
+ 
+<br>
+
+### 🐬 문상일 (브레인 담당 겸 개발 팀장)
+- **FE(UI)**
+  - 제품 상세 페이지, 제품 토론 페이지, 모달
+- **FE(function)**
+  - !!! 입력바람
+ 
+<br>
+
+### 🃏 이해연 (개발 제일 빠른 사람 겸 에이스)
+- **FE(UI)**
+  - 메인 페이지, 주요 Components 개발
+- **FE(function)**
+  - !!! 입력바람
+  -  
+ 
+<br>
+
+### 🐼 이성재 (중책 담당 겸 4개국어 능통자)
+- **FE(UI)**
+  - 상품 목록 페이지, 관리자 페이지 (예정)
+- **FE(function)**
+  - !!! 입력바람
+
+<br>
+
+## [7] 개발 기간
+
+- 전체 개발 기간 : 2024.09.24 ~
+- MVP 개발 : 2024.09.24 ~ 2024.11.01
+
+<br>
+
+## [8] 페이지 구성
+| :---------------------------------------------------------------------------------------------------------------: |
+|           ![main-page](https://github.com/user-attachments/assets/d37d27e7-16d6-4282-b50b-753c32fadf71)           |
+|                                                     메인 페이지                                                    |
+|          ![login-page](https://github.com/user-attachments/assets/795f9a03-7e16-4f7e-96db-9ea6acd4ab96)           |
+|                                                    로그인 페이지                                                   |
+|           ![list-page](https://github.com/user-attachments/assets/388732e9-a258-4ec3-be22-0f7b16d88f06)           |
+|                                                  제품 목록 페이지                                                  |
+|         ![detail-page](https://github.com/user-attachments/assets/303827fd-57f9-46eb-be86-8d5b0ebb8011)           |
+|                                                  제품 상세 페이지                                                  |
+|         ![discussion-page](https://github.com/user-attachments/assets/9c076a10-7f0e-4934-8f0e-8ce8a0cef8e1)       |
+|                                                  제품 토론 페이지                                                   |
