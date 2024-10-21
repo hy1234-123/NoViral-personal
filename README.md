@@ -12,7 +12,7 @@
 
 | **문상일** | **이성재** | **이해연** | **황수범** |
 | :------: |  :------: | :------: | :------: |
-| [@CONG878]([깃허브 링크](https://github.com/CONG878) | [@DKULena](https://github.com/DKULena) | [@깃허브 아이디](깃허브 링크) | [@Peace1128](https://github.com/Peace1128) |
+| [@CONG878](https://github.com/CONG878) | [@DKULena](https://github.com/DKULena) | [@깃허브 아이디](깃허브 링크) | [@Peace1128](https://github.com/Peace1128) |
 | 123 | ![lsj](https://github.com/user-attachments/assets/a959b353-43be-4f80-aeab-2d8d68c25efa) | 123 | ![hsb](https://github.com/user-attachments/assets/8d2be623-f139-4f41-a46b-3012963dfc32) |
 
 </div>
