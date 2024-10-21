@@ -22,27 +22,23 @@ const ProductDisplay = ({
 
   useEffect(() => {
     const img = new Image();
-    img.src =
-      isSelected && selectedProduct ? selectedProduct.thumbnail : thumbnail;
+    img.src = thumbnail;
     img.onload = () => setImageLoaded(true);
-  }, [thumbnail, isSelected, selectedProduct]); // 썸네일 색상 지원 경우를 위해 thumbnail 배열에 포함
+  }, [thumbnail]);
 
-  const displayedProduct =
-    isSelected && selectedProduct
-      ? selectedProduct
-      : {
-          id,
-          product_name,
-          description,
-          price,
-          currency,
-          thumbnail,
-          width,
-          depth,
-          height,
-          weight,
-          color,
-        };
+  const displayedProduct = {
+    id,
+    product_name,
+    description,
+    price,
+    currency,
+    thumbnail,
+    width,
+    depth,
+    height,
+    weight,
+    color,
+  };
 
   const handleProductClick = () => {
     navigate(`/details/${displayedProduct.id}`);
