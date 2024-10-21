@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../css/ProductDisplay.css";
 
 const ProductDisplay = ({
@@ -17,12 +18,13 @@ const ProductDisplay = ({
   selectedProduct,
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const img = new Image();
     img.src = isSelected && selectedProduct ? selectedProduct.thumbnail : thumbnail;
     img.onload = () => setImageLoaded(true);
-  }, [thumbnail, isSelected, selectedProduct]);
+  }, [thumbnail, isSelected, selectedProduct]); // 썸네일 색상 지원 경우를 위해 thumbnail 배열에 포함
 
   const displayedProduct = isSelected && selectedProduct ? selectedProduct : {
     id,
@@ -38,8 +40,12 @@ const ProductDisplay = ({
     color,
   };
 
+  const handleProductClick = () => {
+    navigate(`/details/${displayedProduct.id}`);
+  };
+
   return (
-    <div className="productDisplay">
+    <div className="productDisplay" onClick={handleProductClick}>
       <div className="productImg">
         {imageLoaded ? (
           <img src={displayedProduct.thumbnail} alt={displayedProduct.product_name} />
