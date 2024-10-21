@@ -4,6 +4,8 @@ import Sidebar from "../components/Sidebar";
 import productData from "../../public/data/product_data";
 import "../css/ProductList.css";
 
+import ProductData from "../data/product_data"; //추후 axios 적용 시 제거
+
 const ProductList = () => {
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
