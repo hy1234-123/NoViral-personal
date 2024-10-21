@@ -12,8 +12,8 @@
 
 |               **문상일**               |                                       **이성재**                                        |          **이해연**           |                                       **황수범**                                        |
 | :------------------------------------: | :-------------------------------------------------------------------------------------: | :---------------------------: | :-------------------------------------------------------------------------------------: |
-| [@CONG878](https://github.com/CONG878) |                         [@DKULena](https://github.com/DKULena)                          | [@깃허브 아이디](깃허브 링크) |                       [@Peace1128](https://github.com/Peace1128)                        |
-|                  123                   | ![lsj](https://github.com/user-attachments/assets/a959b353-43be-4f80-aeab-2d8d68c25efa) |              123              | ![hsb](https://github.com/user-attachments/assets/8d2be623-f139-4f41-a46b-3012963dfc32) |
+| [@CONG878](https://github.com/CONG878) |                         [@DKULena](https://github.com/DKULena)                          | [@hy1234-123](https://github.com/hy1234-123) |                       [@Peace1128](https://github.com/Peace1128)                        |
+|                  ![msi](https://github.com/user-attachments/assets/514140e8-2936-43b7-9f1f-60aeef4d5e3f)                   | ![lsj](https://github.com/user-attachments/assets/a959b353-43be-4f80-aeab-2d8d68c25efa) |              ![lhy](https://github.com/user-attachments/assets/af99127a-2ef1-496d-97b4-574da7301e05)              | ![hsb](https://github.com/user-attachments/assets/8d2be623-f139-4f41-a46b-3012963dfc32) |
 
 </div>
 
