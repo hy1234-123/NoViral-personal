@@ -4,6 +4,7 @@ main.Details-n-Discussion {
     display: flex;
     padding: 32px;
     gap: 32px;
+    margin-top: 111px;
 }
 
 .Details-n-Discussion h2 {
@@ -52,6 +53,7 @@ h2 span {
 }
 
 dl {
+    margin-top: 16px;
     margin-bottom: 4px;
     line-height: 24px;
 }
@@ -121,9 +123,11 @@ dd {
     padding: 24px;
     flex-grow: 1;
     position: relative;
-    max-height: 856px; /* .product-overview와 일치 하는 값을 찾음 */
+    max-height: 880px;
+    /* .product-overview와 일치 하는 값을 찾음 */
     box-sizing: content-box;
-    overflow-y: auto; /* 스크롤바 표시 */
+    overflow-y: auto;
+    /* 스크롤바 표시 */
 }
 
 .discussion-section img {
@@ -246,3 +250,49 @@ textarea.report {
 }
 
 /* 모달 창 끝 */
+/* 미디어 쿼리 */
+@media (max-width: 640px) {
+    main.Details-n-Discussion.details {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    main.Details-n-Discussion.discussion {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-overview,
+    .discussion-section {
+        max-width: 100%;
+    }
+
+    .discussion-section {
+        width: 400px;
+        box-sizing: border-box;
+    }
+
+    .details .discussion-section {
+        padding: 0;
+        aspect-ratio: 4 / 3;
+    }
+
+    .discussion .discussion-section {
+        overflow-y: visible;
+    }
+
+    .discussion .discussion-section p {
+        height: 96px;
+        overflow-y: auto;
+    }
+
+    .opinion-footer {
+        flex-direction: column;
+        justify-content: unset;
+    }
+    
+    .opinion-footer small {
+        line-height: 16px;
+        margin-bottom: 8px;
+    }
+}

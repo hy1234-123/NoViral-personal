@@ -25,7 +25,7 @@ function Discussion() {
   };
 
   return (
-    <main className="Details-n-Discussion">
+    <main className="Details-n-Discussion discussion">
       <ProductOverview
         product={product}
         id={id}
