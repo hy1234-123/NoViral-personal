@@ -10,13 +10,21 @@
 import React from "react";
 import "../css/Button.css";
 
-function Button({ children, onClick, type = "button", disabled = false, className = "custom-button" }) {
+function Button({
+  children,
+  onClick,
+  type = "button",
+  disabled = false,
+  className = "custom-button",
+  style,
+}) {
   return (
     <button
       className={className}
       onClick={onClick}
       type={type}
       disabled={disabled}
+      style={style}
     >
       {children}
     </button>

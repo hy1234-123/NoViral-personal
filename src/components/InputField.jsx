@@ -10,6 +10,7 @@ const InputField = ({
   onChange,
   status = "default", // 상태 지정
   className = "", // 기본 className 설정
+  style,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -21,7 +22,7 @@ const InputField = ({
   };
 
   return (
-    <div className={`input-container ${status} ${className}`}>
+    <div className={`input-container ${status} ${className}`} style={style}>
       {/* 첫 번째 라벨 */}
       <label className="input-label">{label}</label>
       <input
