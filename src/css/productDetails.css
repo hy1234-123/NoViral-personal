@@ -18,6 +18,7 @@ main.Details-n-Discussion {
     border: 1px solid #BCC4D0;
     border-radius: 4px;
     padding: 8px;
+    line-height: 24px;
 }
 
 .Details-n-Discussion small {
@@ -52,6 +53,7 @@ h2 span {
 
 dl {
     margin-bottom: 4px;
+    line-height: 24px;
 }
 
 dl div {
@@ -119,6 +121,8 @@ dd {
     padding: 24px;
     flex-grow: 1;
     position: relative;
+    max-height: 856px; /* .product-overview와 일치 하는 값을 찾음 */
+    overflow: hidden;
 }
 
 .discussion-section img {

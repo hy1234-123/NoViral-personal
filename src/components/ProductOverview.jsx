@@ -26,6 +26,7 @@ const ProductOverview = ({ product, id, buttonText, buttonAction }) => {
         <h2>찬성을 많이 받은 상품 의견</h2>
         {product.opinions.slice()
           .sort((a, b) => b.upvotes - a.upvotes)
+          .slice(0, 3) // 상위 3개의 의견만 표시
           .map((opinion, index) => (
             <article key={index}>
               <p>{opinion.content}</p>
