@@ -62,7 +62,7 @@ function MainPage() {
   const handleCloseNotice = () => {
     setIsNoticeVisible(false);
   };
-
+  //상품더미
   const beginnerProducts = [
     {
       id: 1,
