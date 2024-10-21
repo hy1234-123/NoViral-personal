@@ -5,6 +5,7 @@ import InputField from "../components/InputField";
 import Button from "../components/Button";
 import styled from "styled-components";
 import useAlert from "../hooks/UseAlert";
+import { Link } from "react-router-dom";
 
 const StyledInputField = styled(InputField)`
   input {
@@ -79,7 +80,9 @@ function LoginPage() {
     <>
       <div className="login-page-bg">
         <div className="login-page-main">
-          <img src={logos} width={136} />
+          <Link to="/">
+            <img src={logos} width={136} />
+          </Link>
           <StyledInputField
             label="Email"
             placeholder="hello1234@example.com"
