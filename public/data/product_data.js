@@ -10,7 +10,7 @@ const productData = [
       price : "22,210",
       currency : "원",
       color: "Black, White, Pink",
-      thumbnail : "./images/logitech_g102.png"
+      thumbnail : "/images/logitech_g102.png"
   },
   {
       id : 2,
@@ -23,7 +23,7 @@ const productData = [
       price : "55,510",
       currency : "원",
       color: "Black, White, Pink",
-      thumbnail : "./images/logitech_g304.png"
+      thumbnail : "/images/logitech_g304.png"
   },
   {
       id : 3,
@@ -36,7 +36,7 @@ const productData = [
       price : "195,800",
       currency : "원",
       color: "Black, White, Pink",
-      thumbnail : "./images/logitech_gSuperLight.png"
+      thumbnail : "/images/logitech_gSuperLight.png"
   },
   {
       id : 4,
@@ -49,7 +49,7 @@ const productData = [
       price : "195,800",
       currency : "원",
       color: "Black, White, Pink",
-      thumbnail : "./images/logitech_g904.png"
+      thumbnail : "/images/logitech_g904.png"
   },
   {
       id : 5,
@@ -62,7 +62,7 @@ const productData = [
       price : "22,210",
       currency : "원",
       color: "Black, White, Pink",
-      thumbnail : "./images/logitech_g305.png"
+      thumbnail : "/images/logitech_g305.png"
   },
   {
       id : 6,
@@ -75,7 +75,7 @@ const productData = [
       price : "22,210",
       currency : "원",
       color: "Black, White, Pink",
-      thumbnail : "./images/Razer_Viper_V3_Pro.png"
+      thumbnail : "/images/Razer_Viper_V3_Pro.png"
   },
   {
       id : 7,
@@ -88,7 +88,7 @@ const productData = [
       price : "55,510",
       currency : "원",
       color: "Black, White, Pink",
-      thumbnail : "./images/logitech_g304.png"
+      thumbnail : "/images/logitech_g304.png"
   },
   {
       id : 8,
@@ -101,7 +101,7 @@ const productData = [
       price : "22,210",
       currency : "원",
       color: "Black, White, Pink",
-      thumbnail : "./images/logitech_g305.png"
+      thumbnail : "/images/logitech_g305.png"
   },
   {
       id : 9,
@@ -114,7 +114,7 @@ const productData = [
       price : "195,800",
       currency : "원",
       color: "Black, White, Pink",
-      thumbnail : "./images/logitech_g904.png"
+      thumbnail : "/images/logitech_g904.png"
   },
   {
       id : 10,
@@ -127,7 +127,7 @@ const productData = [
       price : "22,210",
       currency : "원",
       color: "Black, White, Pink",
-      thumbnail : "./images/logitech_g102.png"
+      thumbnail : "/images/logitech_g102.png"
   },
 ]
 
