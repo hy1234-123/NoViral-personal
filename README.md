@@ -1,4 +1,4 @@
-# N O   V I R A L
+# N O V I R A L
 
 ![main-img](https://github.com/user-attachments/assets/5131cfb2-8a8f-4e50-b26a-2944564d9d81)
 
@@ -10,10 +10,10 @@
 
 <div align="center">
 
-| **문상일** | **이성재** | **이해연** | **황수범** |
-| :------: |  :------: | :------: | :------: |
-| [@CONG878](https://github.com/CONG878) | [@DKULena](https://github.com/DKULena) | [@깃허브 아이디](깃허브 링크) | [@Peace1128](https://github.com/Peace1128) |
-| 123 | ![lsj](https://github.com/user-attachments/assets/a959b353-43be-4f80-aeab-2d8d68c25efa) | 123 | ![hsb](https://github.com/user-attachments/assets/8d2be623-f139-4f41-a46b-3012963dfc32) |
+|               **문상일**               |                                       **이성재**                                        |          **이해연**           |                                       **황수범**                                        |
+| :------------------------------------: | :-------------------------------------------------------------------------------------: | :---------------------------: | :-------------------------------------------------------------------------------------: |
+| [@CONG878](https://github.com/CONG878) |                         [@DKULena](https://github.com/DKULena)                          | [@깃허브 아이디](깃허브 링크) |                       [@Peace1128](https://github.com/Peace1128)                        |
+|                  123                   | ![lsj](https://github.com/user-attachments/assets/a959b353-43be-4f80-aeab-2d8d68c25efa) |              123              | ![hsb](https://github.com/user-attachments/assets/8d2be623-f139-4f41-a46b-3012963dfc32) |
 
 </div>
 
@@ -22,11 +22,13 @@
 ## [2] 프로젝트 소개
 
 ### 서비스 설명
+
 - 광고 / 바이럴 마케팅 없는 제품 정보 공유 플랫폼입니다.
 - 특정 제품에 대한 유저간의 토론을 통해 “좋은 제품”을 랭킹 등재 또는 등락
 - 입문, 중급, 하이엔드로 사용자 층을 분리하여 서비스 제공
 
 ### 기획 배경 및 목적
+
 - 소비자가 특정 상품의 구매를 원하는 경우 블로그 또는 유튜브에서 정보를 찾아 본 뒤 구매하나, 광고 또는 광고 표시를 하지않은 속칭 “뒷 광고”로 좋은 제품을 찾기가 어려워짐
 - 소비자들 간의 상호 소통, 토론을 통하여 광고/뒷광고 없는 좋은 제품을 선별하도록 함
 - 소비자가 인터넷에서 제품 정보를 찾아보는 시간 단축하고, 좋은 상품을 선별하는 하나의 “커뮤니티”로 자리잡도록 함
@@ -45,23 +47,27 @@
 
 ## [4] 개발 기술
 
-- React.js 
-  - 중복 사용되는 코드들은 Hooks, Component로 개발하여 리소스 관리 및 유지 보수를 좀 더 용이하도록 함 
+- React.js
+
+  - 중복 사용되는 코드들은 Hooks, Component로 개발하여 리소스 관리 및 유지 보수를 좀 더 용이하도록 함
   - router를 사용하여 SPA로 원활히 동작하도록 함
 
 - Intersection Observation
+
   - 관측 라이브러리를 통한 제품 목록 애니메이션 구현
- 
+
 - Axiox
+
   - 추후 서버 연동 시 용이하도록 선작업
- 
+
 - 브랜치 전략
+
   - Trunk-Based Development
   - 빠른 피드백 루프로 작업속도를 향상했으며, 개발 중 팀원간의 교류, 지식교류를 활발하도록 함
 
 - vercel
   - 도메인 관리 및 자동 배포의 편리성과, 추후 Firebase 이용을 고려하여 선정
- 
+
 <br>
 
 ## [5] 프로젝트 구조
@@ -81,7 +87,7 @@
 │    ├── data
 │    │     ├── products.json
 │    │     └── product_data.js
-│    │   
+│    │
 │    └── images
 │
 └── src
@@ -94,8 +100,8 @@
      │
      ├── asset
      │     ├── google-login.svg
-     │     └── noviral_logos.svg  
-     │          
+     │     └── noviral_logos.svg
+     │
      ├── components
      │     ├── Button.jsx
      │     ├── CloseButton.jsx
@@ -110,7 +116,7 @@
      │     ├── Sidebar.jsx
      │     ├── SteppedCorner.jsx
      │     └── SubNavBar.jsx
-     │       
+     │
      ├── pages
      │     ├── Discussion.jsx
      │     ├── LoginPage.jsx
@@ -118,11 +124,11 @@
      │     ├── ProductDetails.jsx
      │     ├── ProductList.jsx
      │     └── ProductPage.jsx
-     │       
+     │
      ├── hooks
      │     ├── UseAlert.jsx
      │     └── UseProductData.jsx
-     │       
+     │
      └── css
            ├── Button.css
            ├── CloseButton.css
@@ -142,16 +148,18 @@
 ## [6] 팀 역할
 
 ### 🐢 황수범 (사파 개발자 겸 말 제일 많은사람 겸 PM)
+
 - **개발 외**
   - 기획 (https://docs.google.com/presentation/d/1HGRkGJTlgUf4LgZTNhr4j82JmJDJIukIbqEtqNLN_Kw/edit?usp=sharing)
   - 디자인 with Figma (https://www.figma.com/design/BPyHFvMkRNADBN2mL7rV7F/%5BEST_FE%5D-NoViral?node-id=0-1&t=gqWUfpzIfMiVGBpB-1)
   - Task 관리 등
 - **FE**
   - 갖가지 기타 오류사항 수정
- 
+
 <br>
 
 ### 🐬 문상일 (브레인 담당 겸 개발 팀장)
+
 - **FE(UI)**
   - 제품 상세 페이지, 제품 토론 페이지, 모달
 - **FE(function)**
@@ -169,19 +177,22 @@
   - 팀장 대리: PM 부재시 회의 진행 및 회의록 작성
   - 커밋 메시지 상세 작성
   - 주석 문서화 (예정)
- 
+
 <br>
 
 ### 🃏 이해연 (개발 제일 빠른 사람 겸 에이스)
+
 - **FE(UI)**
   - 메인 페이지, 주요 Components 개발
 - **FE(function)**
-  - !!! 입력바람
-  -  
- 
+  - 공통 컴포넌트(버튼,네비게이션 바,드롭다운,인풋 등) 개발 및 관리
+  - 반응형 디자인
+  - 슬라이드 및 드롭다운 인터랙션 구현
+
 <br>
 
 ### 🐼 이성재 (중책 담당 겸 4개국어 능통자)
+
 - **FE(UI)**
   - 상품 목록 페이지, 관리자 페이지 (예정)
 - **FE(function)**
@@ -193,12 +204,8 @@
   - 성능 최적화
     - 레이지 로딩 구현
   - 네이게이션 기능
-  - 사용 라이브러리
-    - React
-    - React Router
-    - Axios
-    - Intersection Observer API
-<br>
+  - 사용 라이브러리 - React - React Router - Axios - Intersection Observer API
+    <br>
 
 ## [7] 개발 기간
 
@@ -208,18 +215,19 @@
 <br>
 
 ## [8] 페이지 구성
-|                                                     페이지 구성표                                                  |
-| :---------------------------------------------------------------------------------------------------------------: |
-|           ![main-page](https://github.com/user-attachments/assets/d37d27e7-16d6-4282-b50b-753c32fadf71)           |
-|                                                     메인 페이지                                                    |
-|          ![login-page](https://github.com/user-attachments/assets/795f9a03-7e16-4f7e-96db-9ea6acd4ab96)           |
-|                                                    로그인 페이지                                                   |
-|           ![list-page](https://github.com/user-attachments/assets/388732e9-a258-4ec3-be22-0f7b16d88f06)           |
-|                                                  제품 목록 페이지                                                  |
-|         ![detail-page](https://github.com/user-attachments/assets/303827fd-57f9-46eb-be86-8d5b0ebb8011)           |
-|                                                  제품 상세 페이지                                                  |
-|         ![discussion-page](https://github.com/user-attachments/assets/9c076a10-7f0e-4934-8f0e-8ce8a0cef8e1)       |
-|                                                  제품 토론 페이지                                                   |
+
+|                                            페이지 구성표                                            |
+| :-------------------------------------------------------------------------------------------------: |
+|    ![main-page](https://github.com/user-attachments/assets/d37d27e7-16d6-4282-b50b-753c32fadf71)    |
+|                                             메인 페이지                                             |
+|   ![login-page](https://github.com/user-attachments/assets/795f9a03-7e16-4f7e-96db-9ea6acd4ab96)    |
+|                                            로그인 페이지                                            |
+|    ![list-page](https://github.com/user-attachments/assets/388732e9-a258-4ec3-be22-0f7b16d88f06)    |
+|                                          제품 목록 페이지                                           |
+|   ![detail-page](https://github.com/user-attachments/assets/303827fd-57f9-46eb-be86-8d5b0ebb8011)   |
+|                                          제품 상세 페이지                                           |
+| ![discussion-page](https://github.com/user-attachments/assets/9c076a10-7f0e-4934-8f0e-8ce8a0cef8e1) |
+|                                          제품 토론 페이지                                           |
 
 <br>
 
@@ -233,7 +241,7 @@
 
 ### 🐬 문상일
 
-이 프로젝트는 혼자서는 불가능했을 것입니다.  
+이 프로젝트는 혼자서는 불가능했을 것입니다.
 
 처음 접한 소재였고, 제가 생각하지 못했던 아이디어들이 많이 담겨 있었습니다. 특히 기획은 짜임새가 좋으면서도 창의적이었고, 다양한 경험이 돋보였습니다. 또한 디자인이 우수해서, 디자인에 문외한인 저에게 큰 도움이 되었습니다. 덕분에 기능 구현에 더 집중할 수 있었습니다.
 
@@ -249,7 +257,7 @@
 
 ### 🃏 이해연
 
-여기에 입력해 주세요
+비전공자로 프로젝트를 시작하면서 포기하고 싶은 순간이 많았지만, 팀원들의 도움 덕분에 끝까지 해낼 수 있었습니다. 개발이란 것도 너무 어려운데, 팀으로 프로젝트를 진행하는 것도 또 처음이라 많은 어려움이 있었습니다. 특히, 강의 시간에 배운 방대한 양의 내용 중 기억나지 않거나 모르는 부분이 많아 답답했지만, 스스로 공부하고 직접 해보는 것이 중요하다는 걸 다시 한번 깨달았습니다. 미흡하지만 끝까지 포기하지 않고 프로젝트를 완수할 수 있었던 건 능력 있고 책임감 강한 수범님, 상일님, 성재님 덕분입니다. 아직 추가/수정할 부분들이 많이 남았지만 팀원들께 깊이 감사드립니다. 저도 더 열심히 해서 앞으로는 도움을 받는 사람보다 줄 수 있는 능력 있는 개발자가 되도록 노력하겠습니다!
 
 <br>
 
