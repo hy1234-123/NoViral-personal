@@ -260,59 +260,74 @@ body {
   margin-right: 0;
 }
 .main-product-info h3 {
-  margin-bottom: 5px; /* h3와 p 사이의 간격 설정 */
   margin-right: 10px;
 }
 
 .main-product-info p {
-  margin-bottom: 3px; /* 각 p 태그 사이의 간격 설정 */
-}
-/* 반응형 설정 */
-/* 1250px 이하 */
-@media (max-width: 1250px) {
-  .slide-content {
-    width: 100%;
-  }
-
-  .main-product-card {
-    width: 40%;
+  .high-end-section,
+  .beginner-section {
+    display: block; /* 기본값은 보이도록 설정 */
   }
 }
 
-/* 768px 이하 */
-@media (max-width: 768px) {
-  .slide-content {
-    width: 100%;
+/* 반응형설정 */
+/* 640px 이하 */
+@media (max-width: 640px) {
+  /* 하이엔드, 입문용 섹션 숨기기 */
+  .high-end-section,
+  .beginner-section {
+    display: none; /* 해당 섹션 숨기기 */
   }
 
-  .main-product-card {
-    width: 80%;
+  /* 화살표 버튼 숨기기 */
+  .keyboard-section .arrow-container {
+    display: none;
+  }
+  .category-section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+  }
+  .left-container,
+  .right-container {
+    height: auto;
+    border-right: none;
+    align-items: center;
+    justify-content: center;
   }
   .left-container {
-    width: 200px;
-  }
-}
-/* 600px 이하 */
-@media (max-width: 600px) {
-  .slide-content {
     width: 100%;
+    text-align: center;
+    margin-top: 0px;
+    border-bottom: 1px solid #13161b;
   }
 
-  .main-product-card {
+  .keyboard-section .main-product-grid {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
-
-  .slide-content {
-    width: 100%;
-  }
-  .left-container {
-    width: 100px;
-  }
-  .category-text p {
-    font-size: 14px; /* 키보드 텍스트 크기 줄이기 */
+  .popular-category-header h2 {
+    margin: 0 auto;
+    font-size: 18px;
   }
   .category-section .category-text p.user-level {
-    font-size: 14px;
-    white-space: nowrap;
+    text-align: center;
+  }
+
+  .right-container .main-product-card {
+    align-items: center;
+    justify-content: center;
+  }
+  .category-text p {
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 }
