@@ -10,12 +10,24 @@ const Sidebar = ({ thumbnail, onProductSelect, selectedProductId }) => {
       const sidebarRect = sidebarRef.current.getBoundingClientRect();
       const itemRect = selectedItemRef.current.getBoundingClientRect();
 
-      if (itemRect.top < sidebarRect.top || itemRect.bottom > sidebarRect.bottom) {
-        const scrollTop = selectedItemRef.current.offsetTop - sidebarRef.current.offsetTop;
-        sidebarRef.current.scrollTo({
-          top: scrollTop,
-          behavior: 'smooth'
-        });
+      const isHorizontalLayout = window.innerWidth <= 640;
+      
+      if (isHorizontalLayout) {
+        if (itemRect.left < sidebarRect.left || itemRect.right > sidebarRect.right) {
+          const scrollLeft = selectedItemRef.current.offsetLeft - sidebarRef.current.offsetLeft;
+          sidebarRef.current.scrollTo({
+            left: scrollLeft,
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        if (itemRect.top < sidebarRect.top || itemRect.bottom > sidebarRect.bottom) {
+          const scrollTop = selectedItemRef.current.offsetTop - sidebarRef.current.offsetTop;
+          sidebarRef.current.scrollTo({
+            top: scrollTop,
+            behavior: 'smooth'
+          });
+        }
       }
     }
   }, [selectedProductId]);
@@ -34,7 +46,6 @@ const Sidebar = ({ thumbnail, onProductSelect, selectedProductId }) => {
               <img 
                 src={item.thumbnail} 
                 alt={`Product ${item.id}`} 
-                className={selectedProductId === item.id ? 'focused' : ''}
               />
             </div>
           ))

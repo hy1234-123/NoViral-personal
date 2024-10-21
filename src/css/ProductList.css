@@ -1,6 +1,6 @@
 .product-list-page {
   display: flex;
-  height: calc(100vh - 112px);
+  height: 100vh;
   width: 100vw;
   overflow: hidden;
   padding-top: 114px;
@@ -33,8 +33,21 @@
   background-color: #232a3510;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .product-list-page {
     flex-direction: column;
+  }
+
+  .product-list-content {
+    margin-top: 104px;
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .product-item {
+    width: 100%;
+    min-height: 50vh;
+    margin-right: 0;
   }
 }

@@ -58,7 +58,7 @@ const ProductList = () => {
               scrollTop > lastScrollTop.current ? "down" : "up";
             lastScrollTop.current = scrollTop;
 
-            const threshold = scrollDirection === "down" ? 0.5 : 0.8;
+            const threshold = 0.5;
 
             if (entry.intersectionRatio >= threshold) {
               setSelectedProductId(productId);
@@ -71,7 +71,7 @@ const ProductList = () => {
         });
       },
       {
-        threshold: [0.5, 0.8],
+        threshold: [0.5],
         root: contentRef.current,
       }
     );
