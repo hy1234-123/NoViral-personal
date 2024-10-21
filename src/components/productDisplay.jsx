@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../css/ProductDisplay.css";
+import "../css/productDisplay.css";
 
 const ProductDisplay = ({
   id,
@@ -22,23 +22,27 @@ const ProductDisplay = ({
 
   useEffect(() => {
     const img = new Image();
-    img.src = isSelected && selectedProduct ? selectedProduct.thumbnail : thumbnail;
+    img.src =
+      isSelected && selectedProduct ? selectedProduct.thumbnail : thumbnail;
     img.onload = () => setImageLoaded(true);
   }, [thumbnail, isSelected, selectedProduct]); // 썸네일 색상 지원 경우를 위해 thumbnail 배열에 포함
 
-  const displayedProduct = isSelected && selectedProduct ? selectedProduct : {
-    id,
-    product_name,
-    description,
-    price,
-    currency,
-    thumbnail,
-    width,
-    depth,
-    height,
-    weight,
-    color,
-  };
+  const displayedProduct =
+    isSelected && selectedProduct
+      ? selectedProduct
+      : {
+          id,
+          product_name,
+          description,
+          price,
+          currency,
+          thumbnail,
+          width,
+          depth,
+          height,
+          weight,
+          color,
+        };
 
   const handleProductClick = () => {
     navigate(`/details/${displayedProduct.id}`);
@@ -48,7 +52,10 @@ const ProductDisplay = ({
     <div className="productDisplay" onClick={handleProductClick}>
       <div className="productImg">
         {imageLoaded ? (
-          <img src={displayedProduct.thumbnail} alt={displayedProduct.product_name} />
+          <img
+            src={displayedProduct.thumbnail}
+            alt={displayedProduct.product_name}
+          />
         ) : (
           <div className="image-placeholder">Loading...</div>
         )}
@@ -74,7 +81,9 @@ const ProductDisplay = ({
           <p className="details">
             색상 <span>{displayedProduct.color}</span>
           </p>
-          <p className="description details"><span>{displayedProduct.description}</span></p>
+          <p className="description details">
+            <span>{displayedProduct.description}</span>
+          </p>
         </div>
         <p className="price details">
           {displayedProduct.price} {displayedProduct.currency}
