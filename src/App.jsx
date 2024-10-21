@@ -30,6 +30,7 @@ function Layout() {
         <Route path="/details/:id" element={<ProductDetails />} />
         <Route path="/discussion/:id" element={<Discussion />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/*" element={<MainPage />} />
       </Routes>
       {showFooterRoutes.includes(location.pathname) && <Footer />}
     </>
