@@ -265,9 +265,24 @@
   }
 }
 
+@media (max-width: 640px) {
+  .subnav-container {
+    padding: 0 16px;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  
+  .tabs {
+    gap: 8px;
+  }
+  .actions {
+    gap: 12px;
+  }
+}
+/* 
 @media (max-width: 480px) {
   .subnav-input.input-container {
     width: 100%;
     height: 40px;
   }
-}
+} */
