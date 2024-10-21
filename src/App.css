@@ -48,8 +48,11 @@
   color: #888;
 }
 */
+body {
+  margin: 0;
+}
 header {
-  height: 104px;
+  height: 112px;
 }
 
 /* Footer의 스타일을 추가 */
