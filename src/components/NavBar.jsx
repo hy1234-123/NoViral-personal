@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/NavBar.css";
+import useAlert from "../hooks/UseAlert";
 
 function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -44,6 +45,8 @@ function Navbar() {
     setIsLoggedIn(false);
   };
 
+  const showAlert = useAlert();
+
   return (
     <nav className="navbar">
       <div className="nav-content">
@@ -62,13 +65,13 @@ function Navbar() {
             </a>
             {isDropdownOpen && (
               <ul className="dropdown-menu">
-                <li className="dropdown-item">
+                <li className="dropdown-item" onClick={showAlert}>
                   <Link to="#">Keyboard</Link>
                 </li>
                 <li className="dropdown-item">
                   <Link to="/productList">Mouse</Link>
                 </li>
-                <li className="dropdown-item">
+                <li className="dropdown-item" onClick={showAlert}>
                   <Link to="#">Sounds</Link>
                 </li>
               </ul>

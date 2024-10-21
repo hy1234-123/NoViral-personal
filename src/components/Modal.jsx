@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Button, CloseButton } from './';
+import React, { useEffect, useRef, useState } from "react";
+import { Button, CloseButton } from "./";
+import useAlert from "../hooks/UseAlert";
 
 function Modal({ isOpen, onClose, type }) {
   const dialogRef = useRef(null);
-  const [opinionText, setOpinionText] = useState(''); // 의견 텍스트 상태
-  const [reportText, setReportText] = useState(''); // 신고 텍스트 상태
+  const [opinionText, setOpinionText] = useState(""); // 의견 텍스트 상태
+  const [reportText, setReportText] = useState(""); // 신고 텍스트 상태
+  const showAlert = useAlert();
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -40,12 +42,12 @@ function Modal({ isOpen, onClose, type }) {
   };
 
   const renderContent = () => {
-    if (type === 'newOpinion') {
+    if (type === "newOpinion") {
       return (
         <form method="dialog">
-          {renderHeader('새 의견 등록')}
+          {renderHeader("새 의견 등록")}
           <textarea
-            className='newOpinion'
+            className="newOpinion"
             placeholder="의견 등록 시 주의 사항
 -
 -
@@ -55,35 +57,44 @@ function Modal({ isOpen, onClose, type }) {
             maxLength="1000" // 글자 수 제한 설정
           />
           <small>{opinionText.length}/1000</small> {/* 글자 수 표시 */}
-          <Button type="submit">의견 등록</Button>
+          <Button type="submit" onClick={showAlert}>
+            의견 등록
+          </Button>
         </form>
       );
     }
-    if (type === 'report') {
+    if (type === "report") {
       return (
         <form method="dialog">
-          {renderHeader('의견 제시자 신고')}
+          {renderHeader("의견 제시자 신고")}
           <label htmlFor="reportReason"></label>
-          <input list="reasonList" id="reportReason" name="reportReason" placeholder='신고사유 선택' />
+          <input
+            list="reasonList"
+            id="reportReason"
+            name="reportReason"
+            placeholder="신고사유 선택"
+          />
           <datalist id="reasonList">
             <option value="옵션 1" />
             <option value="옵션 2" />
           </datalist>
           <label htmlFor="reportDetails"></label>
           <textarea
-            className='report'
+            className="report"
             name="reportDetails"
             id="reportDetails"
-            placeholder='신고시 주의 사항
+            placeholder="신고시 주의 사항
 -
 -
--'
+-"
             value={reportText}
             onChange={handleReportChange}
             maxLength="500" // 글자 수 제한 설정
           />
           <small>{reportText.length}/500</small> {/* 글자 수 표시 */}
-          <Button type="submit">신고 접수</Button>
+          <Button type="submit" onClick={showAlert}>
+            신고 접수
+          </Button>
         </form>
       );
     }

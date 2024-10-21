@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import CloseButton from "../components/CloseButton";
 import InputField from "../components/InputField";
 import "../css/SubNavBar.css";
+import useAlert from "../hooks/UseAlert";
 
 const SubNavBar = () => {
   const [activeTab, setActiveTab] = useState(""); // 초기에는 탭이 비활성화 상태
@@ -76,10 +77,12 @@ const SubNavBar = () => {
     }
   };
 
+  const showAlert = useAlert();
+
   return (
     <div className="subnav-fixed">
       <div className={`subnav-container ${isFilterOpen ? "expanded" : ""}`}>
-        <div className="tabs">
+        <div className="tabs" onClick={showAlert}>
           <span
             className={`tab ${activeTab === "입문용" ? "active" : ""}`}
             onClick={() => handleTabClick("입문용")}
@@ -122,10 +125,7 @@ const SubNavBar = () => {
           </span>
         </div>
         <div className={`actions ${isFilterOpen ? "filter-open" : ""}`}>
-          <span
-            className="new-product"
-            onClick={() => navigate("/discussion/1")}
-          >
+          <span className="new-product" onClick={showAlert}>
             새 상품 등록
           </span>
           <span className="filter" onClick={handleFilterClick}>
@@ -182,7 +182,8 @@ const SubNavBar = () => {
           <button
             className="search-btn"
             disabled={!isButtonActive} // 버튼 활성화 여부 제어
-            onClick={handleSearchClick} // 검색 버튼 클릭 시 이동
+            //onClick={handleSearchClick} // 검색 버튼 클릭 시 이동
+            onClick={showAlert}
           >
             <svg
               width="18"
