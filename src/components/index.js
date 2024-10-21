@@ -5,13 +5,14 @@
  * import { Button, Modal } from '../components';
  * 를 상단에 사용하여 불러올 수 있음.
  */
-export { default as Button } from './Button';
-export { default as CloseButton } from './CloseButton';
-export { default as InputField } from './InputField';
-export { default as Modal } from './Modal';
-export { default as NavBar } from './NavBar';
-export { default as SteppedCorner } from './SteppedCorner';
-export { default as SubNavBar } from './SubNavBar';
-export { default as SideBar } from './Sidebar';
-export { default as ProductDisplay } from './productDisplay';
-export { default as ProductOverview } from './ProductOverview';
+export { default as Button } from "./Button";
+export { default as CloseButton } from "./CloseButton";
+export { default as InputField } from "./InputField";
+export { default as Modal } from "./Modal";
+export { default as NavBar } from "./NavBar";
+export { default as SteppedCorner } from "./SteppedCorner";
+export { default as SubNavBar } from "./SubNavBar";
+export { default as SideBar } from "./Sidebar";
+export { default as ProductDisplay } from "./productDisplay";
+export { default as ProductOverview } from "./ProductOverview";
+export { default as Footer } from "./Footer";

@@ -18,7 +18,7 @@ import "./App.css";
 function Layout() {
   const location = useLocation(); // 현재 경로 정보를 가져옴
   const hideHeaderRoutes = ["/login"]; // 특정 경로에서 Header 숨김
-  const showFooterRoutes = ["/"];
+  const showFooterRoutes = ["/", ""];
 
   return (
     <>
