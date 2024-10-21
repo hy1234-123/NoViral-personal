@@ -6,6 +6,7 @@ import ProductOverview from '../components/ProductOverview';
 function ProductDetails() {
   const { id } = useParams();
   const product = UseProductData(id);
+  console.log(product,'?');
   const navigate = useNavigate();
 
   const goToDiscussion = () => {
@@ -21,7 +22,7 @@ function ProductDetails() {
         buttonAction={goToDiscussion} 
       />
       <section className='discussion-section'>
-        <img src="/images/logitech_g102.png" alt="" />
+        <img src={product?.thumbnail} alt="" />
       </section>
     </main>
   );

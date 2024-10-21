@@ -8,18 +8,15 @@ const ProductOverview = ({ product, id, buttonText, buttonAction }) => {
   return (
     <section className="product-overview">
       <article className='product-info'>
-        <h2><span>#{id} </span>{product.productName}</h2>
+        <h2><span>#{id} </span>{product.product_name}</h2>
         <dl>
-          {Object.entries(product.specs).map(([specName, specValue]) => (
-            specName !== '옵션' && (
-              <div key={specName}>
-                <dt>{specName} </dt>
-                <dd>{Array.isArray(specValue) ? specValue.join(', ') : specValue}</dd>
-              </div>
-            )
-          ))}
+          <div><dt>세로 </dt><dd>{product.height}</dd></div>
+          <div><dt>가로 </dt><dd>{product.depth}</dd></div>
+          <div><dt>높이 </dt><dd>{product.width}</dd></div>
+          <div><dt>무게 </dt><dd>{product.weight}</dd></div>
+          <div><dt>색상 </dt><dd>{product.color}</dd></div>
         </dl>
-        <div>{product.specs.옵션}</div>
+        <div>{product.description}</div>
       </article>
       <SteppedCorner />
       <div className='popular-opinions'>
