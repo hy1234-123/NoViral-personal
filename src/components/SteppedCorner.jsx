@@ -18,7 +18,8 @@ const SteppedCorner = () => {
 
   const borderTL = {
     borderTop: '1px solid black',
-    borderLeft: '1px solid black'
+    borderLeft: '1px solid black',
+    borderTopLeftRadius: '4px'
   };
 
   const borderR = {

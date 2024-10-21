@@ -11,8 +11,7 @@
 }
 
 dialog form .close-button {
-  position: relative;
-  left: 6px;
+  right: 0px;
 }
 
 .close-icon {

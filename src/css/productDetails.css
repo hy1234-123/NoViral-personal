@@ -122,7 +122,8 @@ dd {
     flex-grow: 1;
     position: relative;
     max-height: 856px; /* .product-overview와 일치 하는 값을 찾음 */
-    overflow: hidden;
+    box-sizing: content-box;
+    overflow-y: auto; /* 스크롤바 표시 */
 }
 
 .discussion-section img {
@@ -183,6 +184,12 @@ dialog {
     text-align: center;
     box-sizing: border-box;
     padding: 24px;
+}
+
+dialog:-internal-dialog-in-top-layer {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 dialog form {
