@@ -29,7 +29,7 @@ const ProductList = () => {
     const element = productRefs.current[productIndex];
   
     if (element && contentRef.current) {
-      const headerHeight = 26;
+      const headerHeight = 18;
   
       const containerRect = contentRef.current.getBoundingClientRect();
       const elementRect = element.getBoundingClientRect();
