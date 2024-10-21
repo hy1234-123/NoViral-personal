@@ -4,6 +4,8 @@ import ProductDisplay from "../components/productDisplay";
 import Sidebar from "../components/Sidebar";
 import "../css/ProductList.css";
 
+import ProductData from "../data/product_data"; //추후 axios 적용 시 제거
+
 const ProductList = () => {
   const [productData, setProductData] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
@@ -16,8 +18,9 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/products");
-        setProductData(response.data);
+        //const response = await axios.get("/data/product_data");
+        //setProductData(response.data);
+        setProductData(ProductData);
         if (response.data.length > 0) {
           setSelectedProductId(response.data[0].id);
           setSelectedProduct(response.data[0]);
