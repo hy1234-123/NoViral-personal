@@ -3,6 +3,7 @@
   height: calc(100vh - 112px);
   width: 100vw;
   overflow: hidden;
+  padding-top: 114px;
 }
 
 .product-list-content {
