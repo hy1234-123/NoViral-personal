@@ -6,7 +6,7 @@
 
 <br>
 
-## 1. 팀 구성
+## [1] 팀 구성
 
 <div align="center">
 
@@ -18,7 +18,7 @@
 
 <br>
 
-## 2. 프로젝트 소개
+## [2] 프로젝트 소개
 
 ### 서비스 설명
 - 광고 / 바이럴 마케팅 없는 제품 정보 공유 플랫폼입니다.
@@ -32,7 +32,7 @@
 
 <br>
 
-## 3. 개발 환경
+## [3] 개발 환경
 
 - Front : HTML, React, Vite, styled-components, Intersection Observation, Axios
 - Back (예정) : Firebase
@@ -42,7 +42,7 @@
 
 <br>
 
-## 4. 개발 기술
+## [4] 개발 기술
 
 - React.js 
   - 중복 사용되는 코드들은 Hooks, Component로 개발하여 리소스 관리 및 유지 보수를 좀 더 용이하도록 함 
@@ -62,3 +62,115 @@
   - 도메인 관리 및 자동 배포의 편리성과, 추후 Firebase 이용을 고려하여 선정
  
 <br>
+
+## [5] 프로젝트 구조
+
+```
+├── README.md
+├── vite.config.js
+├── yarn.lock
+├── .eslintrc.js
+├── eslintrc.config.js
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── index.html
+│
+├── public
+│    ├── data
+│    │     ├── products.json
+│    │     └── product_data.js
+│    │   
+│    └── images
+│
+└── src
+     ├── App.jsx
+     ├── App.css
+     ├── index.css
+     ├── main.jsx
+     ├── ScrollSpyApp.css
+     ├── ScrollSpyApp.jsx
+     │
+     ├── asset
+     │     ├── google-login.svg
+     │     └── noviral_logos.svg  
+     │          
+     ├── components
+     │     ├── Button.jsx
+     │     ├── CloseButton.jsx
+     │     ├── Footer.jsx
+     │     ├── Header.jsx
+     │     ├── index.js
+     │     ├── InputField.jsx
+     │     ├── Modal.jsx
+     │     ├── NavBar.jsx
+     │     ├── productDisplay.jsx
+     │     ├── ProductOverview.jsx
+     │     ├── Sidebar.jsx
+     │     ├── SteppedCorner.jsx
+     │     └── SubNavBar.jsx
+     │       
+     ├── pages
+     │     ├── Discussion.jsx
+     │     ├── LoginPage.jsx
+     │     ├── MainPage.jsx
+     │     ├── ProductDetails.jsx
+     │     ├── ProductList.jsx
+     │     └── ProductPage.jsx
+     │       
+     ├── hooks
+     │     ├── UseAlert.jsx
+     │     └── UseProductData.jsx
+     │       
+     └── css
+           ├── Sidebar.jsx
+           ├── Sidebar.jsx
+           ├── Sidebar.jsx
+           ├── Sidebar.jsx
+           ├── Sidebar.jsx
+           ├── Sidebar.jsx
+           ├── Sidebar.jsx
+           ├── Sidebar.jsx
+
+           └── Globalstyled.jsx
+```
+
+```
+
+├─components
+│      Button.jsx
+│      CloseButton.jsx
+│      Footer.jsx
+│      Header.jsx
+│      index.js
+│      InputField.jsx
+│      Modal.jsx
+│      NavBar.jsx
+│      productDisplay.jsx
+│      ProductOverview.jsx
+│      Sidebar.jsx
+│      SteppedCorner.jsx
+│      SubNavBar.jsx
+│      
+├─css
+│      Button.css
+│      CloseButton.css
+│      Footer.css
+│      InputField.css
+│      LoginPage.css
+│      MainPage.css
+│      NavBar.css
+│      productDetails.css
+│      productDisplay.css
+│      ProductList.css
+│      Sidebar.css
+│      SubNavBar.css
+│      
+└─pages
+        Discussion.jsx
+        LoginPage.jsx
+        MainPage.jsx
+        ProductDetails.jsx
+        ProductList.jsx
+        ProductPage.jsx
+        
