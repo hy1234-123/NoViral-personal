@@ -1,11 +1,17 @@
 .sidebar {
   width: 200px;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: #fff;
+  border-right: 1px solid #e0e0e0;
   box-sizing: border-box;
-  position: relative;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .thumbnail-container {
@@ -16,7 +22,7 @@
 
 .thumbnail-item {
   width: 100%;
-  padding-top: 100%; /* 1:1 Aspect Ratio */
+  padding-top: 100%;
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -24,6 +30,17 @@
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
 }
 
 .thumbnail-item:hover {
@@ -32,48 +49,47 @@
 }
 
 .thumbnail-item.selected {
-  padding-top: 150%; /* 1:2 Aspect Ratio */
+  padding-top: 150%;
   z-index: 10;
   border: 2px solid #007bff;
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+
+  img {
+    object-fit: contain;
+  }
 }
 
-.thumbnail-item.selected img {
-  object-fit: contain;
-}
-
-.thumbnail-item img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .sidebar {
     width: 100%;
     height: auto;
-    max-height: 30vh;
+    padding: 10px;
+    max-height: 110px;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: fixed;
+    top: 114px;
+    left: 0;
+    z-index: 1000;
   }
 
   .thumbnail-container {
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
   }
 
   .thumbnail-item {
-    width: calc(25% - 10px);
-    padding-top: calc(25% - 10px);
-    max-width: 100px;
+    width: 80px;
+    min-width: 80px;
+    padding-top: 80px;
   }
 
   .thumbnail-item.selected {
-    width: calc(25% - 10px);
-    padding-top: calc(37.5% - 15px);
-    max-width: 100px;
+    padding-top: 80px;
+    width: 80px;
+    min-width: 80px;
   }
 }
