@@ -332,7 +332,7 @@ const productData = [
   },
   {
       id : 10,
-      product_name : "Logitech G102",
+      product_name : "logitech_g304",
       description : "무선 지원",
       width : "40mm",
       depth: "63.5mm",
@@ -341,7 +341,7 @@ const productData = [
       price : "22,210",
       currency : "원",
       color: "Black, White, Pink",
-      thumbnail : "/images/logitech_g102.png",
+      thumbnail : "/images/logitech_g304.png",
       opinions: [
           {
               "content": "사용해본 결과 매우 만족스럽습니다.",

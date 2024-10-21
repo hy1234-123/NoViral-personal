@@ -1,34 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
-import axios from "axios";
 import ProductDisplay from "../components/productDisplay";
 import Sidebar from "../components/Sidebar";
+import productData from "../../public/data/product_data";
 import "../css/ProductList.css";
 
 const ProductList = () => {
-  const [productData, setProductData] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const productRefs = useRef([]);
   const observerRef = useRef(null);
   const contentRef = useRef(null);
   const lastScrollTop = useRef(0);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("http://localhost:3001/products");
-        setProductData(response.data);
-        if (response.data.length > 0) {
-          setSelectedProductId(response.data[0].id);
-          setSelectedProduct(response.data[0]);
-        }
-      } catch (error) {
-        console.error("Error fetching product data:", error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
 
   const thumbnail = productData.map((product) => ({
     id: product.id,
@@ -51,7 +33,8 @@ const ProductList = () => {
     const element = productRefs.current[productIndex];
 
     if (element && contentRef.current) {
-      const headerHeight = 114;
+      const headerHeight = 18;
+
       const containerRect = contentRef.current.getBoundingClientRect();
       const elementRect = element.getBoundingClientRect();
       const relativeTop =
@@ -74,11 +57,8 @@ const ProductList = () => {
             const scrollDirection =
               scrollTop > lastScrollTop.current ? "down" : "up";
             lastScrollTop.current = scrollTop;
-
-            if (
-              entry.intersectionRatio >= 0.6 &&
-              entry.intersectionRatio <= 0.8
-            ) {
+            const threshold = 0.5;
+            if (entry.intersectionRatio >= threshold) {
               setSelectedProductId(productId);
               const visibleProduct = productData.find(
                 (product) => product.id === productId
@@ -89,21 +69,20 @@ const ProductList = () => {
         });
       },
       {
-        threshold: [0.6, 0.8],
+        threshold: [0.5],
         root: contentRef.current,
       }
     );
-
     productRefs.current.forEach((ref) => {
       if (ref) observerRef.current.observe(ref);
     });
-
     return () => {
       if (observerRef.current) {
         observerRef.current.disconnect();
       }
     };
-  }, [productData]);
+  }, []);
+
 
   return (
     <div className="product-list-page">
