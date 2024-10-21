@@ -1,0 +1,29 @@
+.login-page-main {
+  display: flex;
+  margin: auto;
+  padding-top: 120px;
+  flex-direction: column;
+  align-items: center;
+  width: 320px;
+}
+
+.login-page-bg {
+  width: 100vw;
+  height: 100vh;
+}
+
+ul {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+li {
+  list-style: none;
+  font-size: 16px;
+  line-height: 24px;
+  color: #bcc4d0;
+  font-family: "Pretendard";
+  font-weight: 300;
+  cursor: pointer;
+}
