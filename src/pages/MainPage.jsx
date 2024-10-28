@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavBar, CloseButton } from "../components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+
 import "../css/MainPage.css";
 
 function MainPage() {
@@ -61,7 +62,7 @@ function MainPage() {
   const handleCloseNotice = () => {
     setIsNoticeVisible(false);
   };
-
+  //상품더미
   const beginnerProducts = [
     {
       id: 1,
@@ -194,9 +195,10 @@ function MainPage() {
     }
   };
 
-  const handleProductClick = (id) => {
-    navigate(`/details/${id}`); // 모든 상품이 /details/1로 이동
+  const handleProductClick = () => {
+    navigate(`/details/1`); // 모든 상품이 /details/1로 이동
   };
+
   return (
     <div className="main-container">
       <NavBar />
@@ -223,7 +225,7 @@ function MainPage() {
           </div>
         </section>
 
-        <section className="popular-category">
+        <section className="popular-category keyboard-section">
           <div className="popular-category-header">
             <h2>현재 인기 카테고리</h2>
           </div>
@@ -302,7 +304,7 @@ function MainPage() {
                   <div
                     key={item.id}
                     className="main-product-card"
-                    onClick={() => handleProductClick(item.id)}
+                    onClick={handleProductClick}
                     style={{ cursor: "pointer" }}
                   >
                     <img
@@ -342,7 +344,7 @@ function MainPage() {
                     d="M24 1H0V25V49V73H24H48H72V49H48V25H24V1Z"
                     fill="white"
                     stroke="#BCC4D0"
-                    strokeidth="1"
+                    strokeWidth="1"
                   />
                 </svg>
               </div>
@@ -350,7 +352,7 @@ function MainPage() {
           </div>
         </section>
 
-        <section className="popular-category">
+        <section className="popular-category high-end-section">
           <div className="category-section">
             <div className="left-container">
               <div className="category-text">
@@ -438,7 +440,7 @@ function MainPage() {
                   <div
                     key={item.id}
                     className="main-product-card"
-                    onClick={() => handleProductClick(item.id)}
+                    onClick={handleProductClick}
                     style={{ cursor: "pointer" }}
                   >
                     <img
@@ -478,7 +480,7 @@ function MainPage() {
                     d="M24 1H0V25V49V73H24H48H72V49H48V25H24V1Z"
                     fill="white"
                     stroke="#BCC4D0"
-                    stroke-width="1"
+                    strokeWidth="1"
                   />
                 </svg>
               </div>
@@ -486,7 +488,7 @@ function MainPage() {
           </div>
         </section>
 
-        <section className="popular-category">
+        <section className="popular-category beginner-section">
           <div className="category-section">
             <div className="left-container">
               <div className="category-text">
@@ -563,7 +565,7 @@ function MainPage() {
                   <div
                     key={item.id}
                     className="main-product-card"
-                    onClick={() => handleProductClick(item.id)}
+                    onClick={handleProductClick}
                     style={{ cursor: "pointer" }}
                   >
                     <img
